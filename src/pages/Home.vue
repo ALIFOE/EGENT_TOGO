@@ -28,13 +28,13 @@
     </section>
 
     <div class="px-4 -mt-12 mb-12 relative z-10">
-      <div class="max-w-7xl mx-auto bg-green-600 rounded-3xl shadow-lg overflow-hidden">
+      <div class="max-w-7xl mx-auto bg-[#2F7914] rounded-3xl shadow-lg overflow-hidden">
         <div class="px-6 lg:px-8 py-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
             <div class="flex items-center space-x-4">
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center h-14 w-14 rounded-full bg-white">
-                  <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                  <i class="fas fa-map-marker-alt text-[#2F7914] text-xl"></i>
                 </div>
               </div>
               <div>
@@ -44,7 +44,7 @@
             <div class="flex items-center space-x-4">
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center h-14 w-14 rounded-full bg-white">
-                  <i class="fas fa-phone text-green-600 text-xl"></i>
+                  <i class="fas fa-phone text-[#2F7914] text-xl"></i>
                 </div>
               </div>
               <div>
@@ -55,7 +55,7 @@
             <div class="flex items-center space-x-4">
               <div class="flex-shrink-0">
                 <div class="flex items-center justify-center h-14 w-14 rounded-full bg-white">
-                  <i class="fas fa-envelope text-green-600 text-xl"></i>
+                  <i class="fas fa-envelope text-[#2F7914] text-xl"></i>
                 </div>
               </div>
               <div>
@@ -73,8 +73,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <!-- Content -->
           <div class="order-2 md:order-1">
-            <p class="text-secondary font-semibold mb-3 text-sm uppercase tracking-widest">À PROPOS DE NOUS</p>
-            <h2 class="text-4xl md:text-5xl font-black text-dark mb-6 leading-tight">VOTRE AVENIR D'AUTONOMIE ÉNERGÉTIQUE AVEC NOUS</h2>
+            <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest">À PROPOS DE NOUS</p>
+            <h2 class="text-4xl md:text-5xl font-black text-[#05075F] mb-6 leading-tight">VOTRE AVENIR D'AUTONOMIE ÉNERGÉTIQUE AVEC NOUS</h2>
             
             <p class="text-gray-600 mb-8 leading-relaxed text-lg">
               Chez EGENT TOGO, notre objectif est de fournir des solutions énergétiques durables en se spécialisant dans la fourniture et l'installation d'équipements solaires ainsi que dans l'électricité générale.
@@ -99,59 +99,83 @@
     <section id="services" class="bg-white py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-          <p class="text-secondary font-semibold mb-3 text-sm uppercase tracking-widest">Nos services</p>
-          <h2 class="text-4xl md:text-5xl font-black text-dark leading-tight">NOUS OFFRONS DES SOLUTIONS ÉNERGÉTIQUES DURABLES</h2>
+          <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest">Nos services</p>
+          <h2 class="text-4xl md:text-5xl font-black text-[#05075F] leading-tight">NOUS OFFRONS DES SOLUTIONS ÉNERGÉTIQUES DURABLES</h2>
         </div>
 
-        <!-- Services Grid -->
+        c
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <!-- Service 1: Électricité Générale -->
-          <div class="group relative overflow-visible rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-80">
-            <img 
-              src="https://via.placeholder.com/400x300?text=Electricite" 
-              alt="Électricité générale"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 rounded-3xl"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex items-end justify-between p-6 rounded-3xl">
-              <div>
-                <h3 class="text-2xl md:text-3xl font-black text-white">ÉLECTRICITÉ<br>GÉNÉRALE</h3>
-              </div>
+          <div class="group relative overflow-hidden rounded-3xl h-80">
+            <!-- Image Container with Zoom Effect -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+              <img 
+                src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=500&h=400&fit=crop" 
+                alt="Électricité générale"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
-            <div class="absolute -bottom-5 -right-5 w-20 h-20 bg-green-600 rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg">
+            
+            <!-- Gradient Overlay (stays still) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
+              <h3 class="text-2xl md:text-3xl font-black text-white">ÉLECTRICITÉ<br>GÉNÉRALE</h3>
+            </div>
+            
+            <!-- Button -->
+            <div class="absolute -bottom-3 -right-3 w-20 h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg hover:scale-110">
               <i class="fas fa-arrow-right text-white text-lg"></i>
             </div>
           </div>
 
           <!-- Service 2: Climatisation & Froid -->
-          <div class="group relative overflow-visible rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-80">
-            <img 
-              src="https://via.placeholder.com/400x300?text=Climatisation" 
-              alt="Climatisation"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 rounded-3xl"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex items-end justify-between p-6 rounded-3xl">
-              <div>
-                <h3 class="text-2xl md:text-3xl font-black text-white">CLIMATISATION<br>& FROID</h3>
-              </div>
+          <div class="group relative overflow-hidden rounded-3xl h-80">
+            <!-- Image Container with Zoom Effect -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+              <img 
+                src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=400&fit=crop" 
+                alt="Climatisation"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
-            <div class="absolute -bottom-5 -right-5 w-20 h-20 bg-green-600 rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg">
+            
+            <!-- Gradient Overlay (stays still) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
+              <h3 class="text-2xl md:text-3xl font-black text-white">CLIMATISATION<br>& FROID</h3>
+            </div>
+            
+            <!-- Button -->
+            <div class="absolute -bottom-3 -right-3 w-20 h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg hover:scale-110">
               <i class="fas fa-arrow-right text-white text-lg"></i>
             </div>
           </div>
 
           <!-- Service 3: Énergie Solaire -->
-          <div class="group relative overflow-visible rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-80">
-            <img 
-              src="https://via.placeholder.com/400x300?text=Solaire" 
-              alt="Énergie solaire"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 rounded-3xl"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent flex items-end justify-between p-6 rounded-3xl">
-              <div>
-                <h3 class="text-2xl md:text-3xl font-black text-white">ÉNERGIE<br>SOLAIRE</h3>
-              </div>
+          <div class="group relative overflow-hidden rounded-3xl h-80">
+            <!-- Image Container with Zoom Effect -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+              <img 
+                src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=500&h=400&fit=crop" 
+                alt="Énergie solaire"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
-            <div class="absolute -bottom-5 -right-5 w-20 h-20 bg-green-600 rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg">
+            
+            <!-- Gradient Overlay (stays still) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
+              <h3 class="text-2xl md:text-3xl font-black text-white">ÉNERGIE<br>SOLAIRE</h3>
+            </div>
+            
+            <!-- Button -->
+            <div class="absolute -bottom-3 -right-3 w-20 h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-transform duration-300 ring-[12px] ring-white shadow-lg hover:scale-110">
               <i class="fas fa-arrow-right text-white text-lg"></i>
             </div>
           </div>
@@ -179,8 +203,8 @@
 
           <!-- Content -->
           <div class="order-1 md:order-2">
-            <p class="text-secondary font-semibold mb-3 text-sm uppercase tracking-widest">Nos valeurs</p>
-            <h2 class="text-4xl md:text-5xl font-black text-dark mb-6 leading-tight">POURQUOI CHOISIR LES SOLUTIONS EGENT TOGO ?</h2>
+            <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest">Nos valeurs</p>
+            <h2 class="text-4xl md:text-5xl font-black text-[#05075F] mb-6 leading-tight">POURQUOI CHOISIR LES SOLUTIONS EGENT TOGO ?</h2>
             
             <p class="text-gray-600 mb-12 leading-relaxed text-lg">
               Lorem ipsum dolor sit amet consectetur. Platea tortor consectetur facilisi id malesuada. Vitae mauris purus erat est molestie velit rutrum neque ullamcorper.
@@ -189,37 +213,37 @@
             <div class="grid grid-cols-2 gap-6">
               <!-- Feature 1 -->
               <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-secondary/10 mb-4">
-                  <i class="fas fa-gem text-secondary text-2xl"></i>
+                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#FF9D35]/10 mb-4">
+                  <i class="fas fa-gem text-[#FF9D35] text-2xl"></i>
                 </div>
-                <h3 class="font-black text-dark text-lg mb-3">Équipement de Qualité</h3>
+                <h3 class="font-black text-[#05075F] text-lg mb-3">Équipement de Qualité</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur. Ut nunc magna volutpat quam dui montes.</p>
               </div>
 
               <!-- Feature 2 -->
               <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-secondary/10 mb-4">
-                  <i class="fas fa-bolt text-secondary text-2xl"></i>
+                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#FF9D35]/10 mb-4">
+                  <i class="fas fa-bolt text-[#FF9D35] text-2xl"></i>
                 </div>
-                <h3 class="font-black text-dark text-lg mb-3">Énergie Durable</h3>
+                <h3 class="font-black text-[#05075F] text-lg mb-3">Énergie Durable</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur. Ut nunc magna volutpat quam dui montes.</p>
               </div>
 
               <!-- Feature 3 -->
               <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-secondary/10 mb-4">
-                  <i class="fas fa-shield-alt text-secondary text-2xl"></i>
+                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#FF9D35]/10 mb-4">
+                  <i class="fas fa-shield-alt text-[#FF9D35] text-2xl"></i>
                 </div>
-                <h3 class="font-black text-dark text-lg mb-3">Installation sécurisée</h3>
+                <h3 class="font-black text-[#05075F] text-lg mb-3">Installation sécurisée</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur. Ut nunc magna volutpat quam dui montes.</p>
               </div>
 
               <!-- Feature 4 -->
               <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-secondary/10 mb-4">
-                  <i class="fas fa-users text-secondary text-2xl"></i>
+                <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#FF9D35]/10 mb-4">
+                  <i class="fas fa-users text-[#FF9D35] text-2xl"></i>
                 </div>
-                <h3 class="font-black text-dark text-lg mb-3">Technicien qualifié</h3>
+                <h3 class="font-black text-[#05075F] text-lg mb-3">Technicien qualifié</h3>
                 <p class="text-gray-600 text-sm leading-relaxed">Lorem ipsum dolor sit amet consectetur. Ut nunc magna volutpat quam dui montes.</p>
               </div>
             </div>
@@ -232,8 +256,8 @@
     <section id="products" class="bg-white py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-20">
-          <p class="text-secondary font-semibold mb-3 text-sm uppercase tracking-widest">Nos produits</p>
-          <h2 class="text-4xl md:text-5xl font-black text-dark leading-tight mb-6">DÉCOUVREZ NOS PRODUITS PHARES</h2>
+          <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest">Nos produits</p>
+          <h2 class="text-4xl md:text-5xl font-black text-[#05075F] leading-tight mb-6">DÉCOUVREZ NOS PRODUITS PHARES</h2>
           <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Nous avons des produits conçus pour vous aider à réduire vos coûts d'électricité et à améliorer votre confort. Découvrez-les dès maintenant !
           </p>
@@ -243,54 +267,54 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-end">
           <!-- Product 1: Armoire Billy -->
           <div class="flex flex-col h-full">
-            <div class="bg-blue-50 rounded-3xl overflow-hidden shadow-lg mb-6 h-96">
+            <div class="relative bg-blue-50 rounded-3xl overflow-hidden shadow-lg">
               <img 
-                src="https://via.placeholder.com/400x500?text=Armoire+Billy" 
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=389&h=446&fit=crop" 
                 alt="Armoire Billy"
-                class="w-full h-full object-cover"
+                class="w-[389px] h-[446px] object-cover"
               />
+              <div class="absolute inset-x-0 bottom-0 bg-white p-6 rounded-b-3xl">
+                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Armoire Billy</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Solution anti délestage, pour éviter les coupures de courant. Remplace valablement les groupes électrogènes.
+                </p>
+              </div>
             </div>
-            <h3 class="text-2xl font-black text-blue-600 mb-4">Armoire Billy</h3>
-            <p class="text-gray-700 leading-relaxed text-base">
-              Solution anti délestage, pour éviter les coupures de courant. Remplace valablement les groupes électrogènes.
-            </p>
           </div>
 
           <!-- Product 2: Lampadaires EGENT Solar - CENTER/LARGER -->
-          <div class="flex flex-col h-full md:-mt-12">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl mb-6 h-96">
+          <div class="flex flex-col-reverse h-full md:-mt-12">
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl">
               <img 
-                src="https://via.placeholder.com/400x500?text=Lampadaires+EGENT" 
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=389&h=446&fit=crop" 
                 alt="Lampadaires EGENT Solar"
-                class="w-full h-full object-cover"
+                class="w-[389px] h-[446px] object-cover"
               />
-              <!-- <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col items-start justify-end p-6">
-                <div class="bg-orange-500 text-black px-4 py-2 font-black text-lg mb-2">
-                  LAMPADAIRES<br>EGENT Solar
-                </div>
-                <p class="text-white text-sm font-bold mb-1">FIABLE - FORTE LUMIÈRE</p>
-                <p class="text-red-400 text-sm font-bold">Garantie 05 ans</p>
-              </div> -->
+              <div class="absolute inset-x-0 top-0 bg-white p-6 rounded-t-3xl">
+                <h3 class="text-3xl font-black text-[#0392C7] mb-2">Lampadaires<br>EGENT SOLAR</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Des lampadaires solaires pour illuminer vos espaces extérieurs tout en réduisant vos coûts d'électricité.
+                </p>
+              </div>
             </div>
-            <h3 class="text-3xl font-black text-blue-600 mb-4">Lampadaires<br>EGENT SOLAR</h3>
-            <p class="text-gray-700 leading-relaxed text-base">
-              Des lampadaires solaires pour illuminer vos espaces extérieurs tout en réduisant vos coûts d'électricité.
-            </p>
           </div>
 
           <!-- Product 3: Kit Zoklin -->
           <div class="flex flex-col h-full">
-            <div class="bg-orange-50 rounded-3xl overflow-hidden shadow-lg mb-6 h-96">
+            <div class="relative bg-orange-50 rounded-3xl overflow-hidden shadow-lg">
+
               <img 
-                src="https://via.placeholder.com/400x500?text=Kit+Zoklin" 
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=389&h=446&fit=crop" 
                 alt="Kit Zoklin"
-                class="w-full h-full object-cover"
+                class="w-[389px] h-[446px] object-cover"
               />
+              <div class="absolute inset-x-0 bottom-0 bg-white p-6 rounded-b-3xl">
+                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Kit Zoklin</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Votre solution solaire préconçue pour une installation rapide et facile. Tout inclus pour votre autonomie énergétique.
+                </p>
+              </div>
             </div>
-            <h3 class="text-2xl font-black text-blue-600 mb-4">Kit Zoklin</h3>
-            <p class="text-gray-700 leading-relaxed text-base">
-              Votre solution solaire préconçue pour une installation rapide et facile. Tout inclus pour votre autonomie énergétique.
-            </p>
           </div>
         </div>
 
@@ -302,18 +326,18 @@
     </section>
 
     <!-- CTA Section: Dites au revoir aux pannes -->
-    <section class="bg-blue-50 py-16 md:py-24">
+    <section class="bg-[#EDFAFF] py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <!-- Content -->
           <div>
-            <h2 class="text-4xl md:text-5xl font-black text-dark leading-tight mb-8">DITES AU REVOIR AUX PANNES<br>D'ÉLECTRICITÉ ET<br>AUX FACTURES SALÉES.</h2>
+            <h2 class="text-4xl md:text-5xl font-black text-[#05075F] leading-tight mb-8">DITES AU REVOIR AUX PANNES<br>D'ÉLECTRICITÉ ET<br>AUX FACTURES SALÉES.</h2>
             
-            <p class="text-gray-700 mb-8 leading-relaxed text-lg">
+            <p class="text-[#05075F] mb-8 leading-relaxed text-lg">
               Nous vous proposons des solutions d'énergie renouvelable pour votre maison ou votre entreprise à des prix abordables. Une première étape vers un avenir plus vert.
             </p>
 
-            <button class="bg-secondary hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-300">
+            <button class="bg-[#FF9D35] hover:bg-orange-600 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-300">
               Demander un devis
             </button>
           </div>
@@ -321,7 +345,7 @@
           <!-- Image -->
           <div>
             <img 
-              src="https://via.placeholder.com/600x500?text=Solar+Professional" 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop" 
               alt="Professionnelle énergie solaire"
               class="w-full rounded-3xl shadow-2xl"
             />
