@@ -36,7 +36,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/EGENT_TOGO/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
