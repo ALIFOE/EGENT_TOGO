@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page non trouvée</title>
     <script>
-      // Redirige vers index.html pour que Vue Router gère la route
-      sessionStorage.redirect = location.href;
+      // Stocke la route demandée pour que Vue Router la traite
+      const path = location.pathname.replace('/EGENT_TOGO/', '');
+      sessionStorage.redirect = '/' + path;
     </script>
     <meta http-equiv="refresh" content="0;url=/EGENT_TOGO/" />
   </head>
