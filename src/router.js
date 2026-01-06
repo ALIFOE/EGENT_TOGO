@@ -7,6 +7,8 @@ import Services from './pages/Services.vue'
 import Products from './pages/Products.vue'
 import Gallery from './pages/Gallery.vue'
 import News from './pages/News.vue'
+import Contact from './pages/Contact.vue'
+import Quote from './pages/Quote.vue'
 
 const routes = [
   {
@@ -38,6 +40,16 @@ const routes = [
     path: '/galerie',
     name: 'Gallery',
     component: Gallery
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
+  },
+  {
+    path: '/devis',
+    name: 'Quote',
+    component: Quote
   }
 ]
 

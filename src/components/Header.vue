@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     :class="isScrolling ? 'px-4 py-0' : 'px-4 py-4'"
   >
-    <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+    <div class="max-w-7xl mx-auto bg-white/30 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden border border-white/20">
       <nav class="flex justify-between items-center px-6 lg:px-8 py-4 lg:py-5">
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-300 group">
@@ -14,58 +14,72 @@
               <circle cx="50" cy="75" r="4" fill="#22c55e"/>
             </svg>
           </div>
-          <span class="text-xl font-black text-dark hidden sm:inline-block">EGENT-TOGO</span>
+          <span class="text-xl font-black text-dark hidden sm:inline-block font-bold">EGENT-TOGO</span>
         </RouterLink>
 
         <!-- Menu Desktop -->
         <div class="hidden lg:flex items-center space-x-2">
           <RouterLink 
             to="/" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             ACCUEIL
           </RouterLink>
           <RouterLink 
             to="/a-propos" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/a-propos') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             À PROPOS
           </RouterLink>
           <RouterLink 
             to="/services" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/services') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             SERVICES
           </RouterLink>
           <RouterLink 
             to="/produits" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/produits') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             PRODUITS
           </RouterLink>
           <RouterLink 
             to="/actualites" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/actualites') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             ACTUALITÉS
           </RouterLink>
           <RouterLink 
             to="/galerie" 
-            class="px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
             :class="isActive('/galerie') ? 'text-secondary' : 'text-dark hover:text-secondary'"
           >
             GALERIE
+          </RouterLink>
+          <RouterLink 
+            to="/contact" 
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
+            :class="isActive('/contact') ? 'text-secondary' : 'text-dark hover:text-secondary'"
+          >
+            CONTACT
+          </RouterLink>
+          <RouterLink 
+            to="/devis" 
+            class="px-4 py-2 rounded-lg font-bold text-sm transition-all duration-300"
+            :class="isActive('/devis') ? 'text-secondary' : 'text-dark hover:text-secondary'"
+          >
+            DEVIS
           </RouterLink>
         </div>
 
         <!-- CTA Button + Mobile Menu -->
         <div class="flex items-center space-x-4">
-          <button class="hidden lg:block bg-secondary hover:bg-orange-600 text-white font-black px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm">
+          <button class="hidden lg:block bg-secondary hover:bg-orange-600 text-white font-black px-6 py-2.5 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm" @click="navigateTo('/devis')">
             Demander un devis
           </button>
 
@@ -101,7 +115,7 @@
           <div class="space-y-2 pt-4">
             <RouterLink 
               to="/" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
@@ -109,7 +123,7 @@
             </RouterLink>
             <RouterLink 
               to="/a-propos" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/a-propos') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
@@ -117,7 +131,7 @@
             </RouterLink>
             <RouterLink 
               to="/services" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/services') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
@@ -125,7 +139,7 @@
             </RouterLink>
             <RouterLink 
               to="/produits" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/produits') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
@@ -133,7 +147,7 @@
             </RouterLink>
             <RouterLink 
               to="/actualites" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/actualites') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
@@ -141,13 +155,29 @@
             </RouterLink>
             <RouterLink 
               to="/galerie" 
-              class="block px-4 py-3 rounded-lg font-semibold transition-all duration-300"
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
               :class="isActive('/galerie') ? 'text-secondary' : 'text-dark hover:text-secondary'"
               @click="mobileMenuOpen = false"
             >
               GALERIE
             </RouterLink>
-            <button class="w-full bg-secondary hover:bg-orange-600 text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mt-4">
+            <RouterLink 
+              to="/contact" 
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
+              :class="isActive('/contact') ? 'text-secondary' : 'text-dark hover:text-secondary'"
+              @click="mobileMenuOpen = false"
+            >
+              CONTACT
+            </RouterLink>
+            <RouterLink 
+              to="/devis" 
+              class="block px-4 py-3 rounded-lg font-bold transition-all duration-300"
+              :class="isActive('/devis') ? 'text-secondary' : 'text-dark hover:text-secondary'"
+              @click="mobileMenuOpen = false"
+            >
+              DEVIS
+            </RouterLink>
+            <button class="w-full bg-secondary hover:bg-orange-600 text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mt-4" @click="navigateTo('/devis'); mobileMenuOpen = false">
               Demander un devis
             </button>
           </div>
@@ -159,10 +189,11 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const mobileMenuOpen = ref(false)
 const route = useRoute()
+const router = useRouter()
 const isScrolling = ref(false)
 const lastScrollY = ref(0)
 
@@ -180,6 +211,11 @@ const handleScroll = () => {
 // Vérifie si la route est active
 const isActive = (path) => {
   return route.path === path
+}
+
+// Navigation
+const navigateTo = (path) => {
+  router.push(path)
 }
 
 // Écoute le scroll
