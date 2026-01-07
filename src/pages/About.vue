@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 min-h-screen">
+  <div class="bg-gradient-to-b from-gray-40 via-gray-100 to-gray-200 min-h-screen">
     <!-- Hero Section About -->
     <div class="relative overflow-hidden pt-8 pb-20 md:pt-16 md:pb-32">
       <!-- Animated gradient background -->
