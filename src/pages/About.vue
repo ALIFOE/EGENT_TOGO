@@ -73,9 +73,9 @@
                 <div class="w-7 sm:w-9 md:w-10 lg:w-12 h-7 sm:h-9 md:h-10 lg:h-12 bg-gradient-to-br from-secondary to-orange-400 rounded-lg flex items-center justify-center text-white shadow-lg">
                   <i class="fas fa-bolt text-xs sm:text-base md:text-lg lg:text-xl"></i>
                 </div>
-                <h3 class="font-black text-blue-300 text-xs sm:text-sm md:text-base lg:text-lg">Innovation</h3>
+                <h3 class="font-black text-blue-800 text-xs sm:text-sm md:text-base lg:text-lg">Innovation</h3>
               </div>
-              <p class="text-[10px] sm:text-xs md:text-sm text-blue-200 leading-tight">Solutions de demain</p>
+              <p class="text-[10px] sm:text-xs md:text-sm text-black leading-tight">Solutions de demain</p>
             </div>
 
             <!-- Floating card 2 - Bottom left -->
@@ -84,9 +84,9 @@
                 <div class="w-7 sm:w-9 md:w-10 lg:w-12 h-7 sm:h-9 md:h-10 lg:h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center text-white shadow-lg">
                   <i class="fas fa-leaf text-xs sm:text-base md:text-lg lg:text-xl"></i>
                 </div>
-                <h3 class="font-black text-blue-300 text-xs sm:text-sm md:text-base lg:text-lg">Durabilité</h3>
+                <h3 class="font-black text-blue-800 text-xs sm:text-sm md:text-base lg:text-lg">Durabilité</h3>
               </div>
-              <p class="text-[10px] sm:text-xs md:text-sm text-blue-200 leading-tight">Énergie propre</p>
+              <p class="text-[10px] sm:text-xs md:text-sm text-black leading-tight">Énergie propre</p>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
       <!-- Scroll indicator -->
       <div class="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div class="text-white/40 text-xs sm:text-sm font-semibold flex flex-col items-center gap-1">
-          <span class="hidden sm:inline">Découvrez plus</span>
+          <!-- <span class="hidden sm:inline">Découvrez plus</span> -->
           <svg class="w-4 sm:w-5 h-4 sm:h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
@@ -167,44 +167,92 @@
           </div>
 
           <!-- Contenu visuel droite - Image portrait avec icônes -->
-          <div class="relative h-full min-h-[600px] md:min-h-screen flex items-center justify-center">
-            <!-- Image portrait de fond -->
-            <div class="relative w-full h-full rounded-3xl overflow-visible shadow-2xl">
-              <img 
-                src="/src/assets/images/panneau_montés.jpg" 
-                alt="Panneaux solaires - Énergie renouvelable"
-                class="w-full h-full object-cover rounded-3xl hover:shadow-3xl transition-shadow duration-500"
-              />
-              <!-- Gradient overlay subtle -->
-              <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent rounded-3xl"></div>
-
-              <!-- Icône Objectifs - Carré haut gauche -->
-              <div class="absolute top-1/4 left-0 z-10 -translate-x-1/2 group">
-                <div class="bg-gradient-to-br from-orange-400 to-orange-500 rounded-3xl p-6 text-white shadow-2xl w-40 h-40 flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 group-hover:shadow-orange-400/50 group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-105">
-                  <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mb-3 group-hover:rotate-12 transition-transform duration-300">
-                    <i class="fas fa-bullseye text-orange-500 text-2xl"></i>
-                  </div>
-                  <p class="text-xs font-black text-orange-100 text-center leading-tight">NOS</p>
-                  <p class="text-xs font-black text-orange-100 text-center leading-tight">OBJECTIFS</p>
-                </div>
-              </div>
-
-              <!-- Icône Vision - Carré bas gauche -->
-              <div class="absolute bottom-1/4 left-0 z-10 -translate-x-1/2 group">
-                <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-6 text-white shadow-2xl w-40 h-40 flex flex-col items-center justify-center backdrop-blur-sm bg-opacity-95 group-hover:shadow-blue-600/50 group-hover:shadow-2xl transition-all duration-300 transform group-hover:scale-105">
-                  <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mb-3 group-hover:-rotate-12 transition-transform duration-300">
-                    <i class="fas fa-eye text-blue-600 text-2xl"></i>
-                  </div>
-                  <p class="text-xs font-black text-blue-100 text-center leading-tight">NOTRE</p>
-                  <p class="text-xs font-black text-blue-100 text-center leading-tight">VISION</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <VisualContentSection />
         </div>
       </div>
 
-      
+      <!-- Section Pourquoi choisir EGENT TOGO -->
+      <div class="mb-16 md:mb-24 py-16 md:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          <!-- Image gauche -->
+          <div class="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+            <img 
+              src="/src/assets/images/photo_chantier.jpg" 
+              alt="Équipe EGENT TOGO"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+          </div>
+
+          <!-- Contenu droite avec cartes -->
+          <div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-dark mb-8 leading-tight">
+              POURQUOI CHOISIR LES<br/><span class="text-secondary">SOLUTIONS EGENT TOGO</span> ?
+            </h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12">
+              Nous nous engageons à fournir les meilleures solutions énergétiques avec expertise, fiabilité et engagement envers votre satisfaction. Chaque projet est réalisé avec précision et professionnalisme pour garantir votre succès énergétique.
+            </p>
+
+            <!-- Grille de 4 cartes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Carte 1 -->
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-gem text-secondary text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-black text-dark mb-3">Équipement de Qualité</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Nous sélectionnons uniquement des équipements premium certifiés conformes aux normes internationales pour assurer performance et durabilité maximales.
+                </p>
+              </div>
+
+              <!-- Carte 2 -->
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-leaf text-secondary text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-black text-dark mb-3">Énergie Durable</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Nos solutions énergétiques respectent l'environnement tout en réduisant votre consommation et vos factures pour un avenir plus vert et économique.
+                </p>
+              </div>
+
+              <!-- Carte 3 -->
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-check-circle text-secondary text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-black text-dark mb-3">Installation sécurisée</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Nos équipes respectent les normes de sécurité strictes et utilisent les meilleures pratiques pour une installation fiable et sans risque.
+                </p>
+              </div>
+
+              <!-- Carte 4 -->
+              <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                  <i class="fas fa-users text-secondary text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-black text-dark mb-3">Technicien qualifié</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Notre équipe de techniciens certifiés possède une expertise approfondie pour garantir des installations optimales et un support technique d'excellence.
+                </p>
+              </div>
+            </div>
+
+            <!-- Boutons de navigation -->
+            <!-- <div class="flex items-center gap-4 mt-8">
+              <button class="w-12 h-12 bg-dark/20 hover:bg-dark/30 text-dark rounded-full flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="w-12 h-12 bg-dark/20 hover:bg-dark/30 text-dark rounded-full flex items-center justify-center transition-colors duration-300">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
 
       <!-- Section Notre Équipes -->
       <div class="mb-16 md:mb-24 py-16 md:py-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-3xl px-8 md:px-16">
@@ -378,6 +426,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import VisualContentSection from '../components/VisualContentSection.vue'
 
 const router = useRouter()
 

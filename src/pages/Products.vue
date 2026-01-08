@@ -72,9 +72,9 @@
                 <div class="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-br from-secondary to-orange-400 rounded-lg flex items-center justify-center text-white shadow-lg">
                   <i class="fas fa-box text-lg md:text-xl"></i>
                 </div>
-                <h3 class="font-black text-blue-300 text-base md:text-lg">Premium</h3>
+                <h3 class="font-black text-blue-800 text-base md:text-lg">Premium</h3>
               </div>
-              <p class="text-xs md:text-sm text-blue-200">Produits de qualité supérieure</p>
+              <p class="text-xs md:text-sm text-black">Produits de qualité supérieure</p>
             </div>
 
             <!-- Floating card 2 - Bottom left -->
@@ -83,9 +83,9 @@
                 <div class="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-lg flex items-center justify-center text-white shadow-lg">
                   <i class="fas fa-shield-alt text-lg md:text-xl"></i>
                 </div>
-                <h3 class="font-black text-blue-300 text-base md:text-lg">Garantie</h3>
+                <h3 class="font-black text-blue-900 text-base md:text-lg">Garantie</h3>
               </div>
-              <p class="text-xs md:text-sm text-blue-200">Service client disponible 24/7</p>
+              <p class="text-xs md:text-sm text-black">Service client disponible 24/7</p>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
       <!-- Scroll indicator -->
       <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div class="text-white/50 text-sm font-semibold flex flex-col items-center gap-2">
-          <span>Découvrez plus</span>
+          <!-- <span>Découvrez plus</span> -->
           <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
