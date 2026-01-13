@@ -52,7 +52,7 @@
             @error="onVideoError"
             @loadstart="onLoadStart"
           >
-            <source src="/videos/videoauto.mp4" type="video/mp4" />
+            <source src="/src/assets/videos/videoauto.mp4" type="video/mp4" />
           </video>
           
           <!-- Image de fallback (affichée si vidéo vide) -->
