@@ -574,7 +574,7 @@
 import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useCursorFollowText } from '../composables/useCursorFollowText'
-import hero1 from '/src/assets/images/headpage3.png?url'
+import hero1 from '/src/assets/images/headepage.webp?url'
 
 const router = useRouter()
 useCursorFollowText()
