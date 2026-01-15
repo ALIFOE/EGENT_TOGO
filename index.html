@@ -2,9 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/images/logo_marque.png" />
+    <link rel="icon" type="image/png" href="./src/assets/images/logo_marque.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EGENT TOGO </title>
+    <script>
+      (function(){
+        let redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>
