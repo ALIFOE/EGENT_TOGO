@@ -15,7 +15,7 @@ export default {
         dark: '#001a4d',
       },
       fontFamily: {
-        sans: ['Campton', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
       },
     },
   },
