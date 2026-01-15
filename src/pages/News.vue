@@ -19,9 +19,10 @@
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight">
             Nos <span class="text-[#EE6D08]">Actualités</span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
-            Découvrez les dernières nouvelles, innovations et réalisations du groupe EGENT-TOGO. Suivez notre actualité pour rester connecté à nos développements.
-          </p>
+          <!-- <p class="text-lg md:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+            Découvrez les dernières nouvelles, innovations et réalisations du groupe EGENT-TOGO. <br>
+            <br>Suivez notre actualité pour rester connecté à nos développements.
+          </p> -->
         </div>
       </div>
 

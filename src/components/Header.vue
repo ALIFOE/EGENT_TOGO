@@ -65,7 +65,7 @@
 
         <!-- CTA Button + Mobile Menu -->
         <div class="flex items-center space-x-2 lg:space-x-3">
-          <button class="hidden lg:block bg-[#016E98] hover:bg-[#EE6D08] text-white font-black px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-xs" @click="navigateTo('/galerie')">
+          <button class="hidden lg:block bg-[#016E98] hover:bg-[#EE6D08] text-white font-black px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-xs" @click="navigateTo('/projets')">
             Voir nos projets
           </button>
           <button class="hidden lg:block bg-[#EE6D08] hover:bg-[#016E98] text-white font-black px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-xs" @click="navigateTo('/devis')">
@@ -159,7 +159,7 @@
               CONTACT
             </RouterLink>
             <div class="space-y-2 mt-4">
-              <button class="w-full bg-[#016E98] hover:bg-[#EE6D08] text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" @click="navigateTo('/produits'); mobileMenuOpen = false">
+              <button class="w-full bg-[#016E98] hover:bg-[#EE6D08] text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" @click="navigateTo('/projets'); mobileMenuOpen = false">
                 Voir nos projets
               </button>
               <button class="w-full bg-[#EE6D08] hover:bg-[#016E98] text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" @click="navigateTo('/devis'); mobileMenuOpen = false">

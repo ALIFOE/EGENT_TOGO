@@ -130,7 +130,9 @@
             <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-slideInDown">Notre Histoire</p>
             <h2 class="text-4xl md:text-5xl font-black text-[#016E98] mb-6 leading-tight animate-slideInDown animation-delay-200">NOTRE HISTOIRE</h2>
             <p class="text-lg text-gray-700 leading-relaxed animate-fadeInUp animation-delay-400">
-              Fondée avec passion et expertise, EGENT TOGO a une histoire marquée par un engagement constant envers l'excellence et le service client. Depuis notre création, nous avons réalisé des projets variés et avons acquis une expérience approfondie dans le domaine des énergies renouvelables et de l'électricité générale. Chaque étape de notre parcours témoigne de notre détermination à être un acteur clé dans le secteur énergétique.
+              Tout commence en 2017 avec une ambition simple : apporter des solutions d'efficacité énergétique et d'électricité fiables là où le réseau montrait ses limites. Au fil des années, EGENT TOGO est devenue une référence en ingénierie électrique et en énergie solaire au Togo.<br>
+              <br>
+​Face au manque de techniciens qualifiés sur le marché, nous avons franchi une étape décisive en créant CREFER dès 2019, notre centre de formation spécialisé. Cette synergie unique nous permet aujourd'hui de garantir des installations d'une qualité irréprochable, portées par des experts formés aux standards internationaux.
             </p>
           </div>
         </div>
@@ -146,12 +148,12 @@
               <div class="flex items-center gap-4 mb-8">
                 <div class="w-2 h-16 bg-gradient-to-b from-orange-400 to-transparent rounded-full"></div>
                 <div>
-                  <p class="text-[#FF9D35] font-semibold mb-1 text-sm uppercase tracking-widest animate-slideInDown">Nos Objectifs</p>
-                  <h2 class="text-4xl md:text-5xl font-black text-[#016E98] animate-slideInDown animation-delay-200">NOS OBJECTIFS</h2>
+                  <p class="text-[#FF9D35] font-semibold mb-1 text-sm uppercase tracking-widest animate-slideInDown"></p>
+                  <h2 class="text-4xl md:text-5xl font-black text-[#016E98] animate-slideInDown animation-delay-200">Notre objectif</h2>
                 </div>
               </div>
               <p class="text-lg text-gray-700 leading-relaxed animate-fadeInUp animation-delay-400">
-                Chez EGENT TOGO, notre objectif est de fournir des solutions énergétiques durables en se spécialisant dans la fourniture et l'installation d'équipements solaires ainsi que dans l'électricité générale. Nous nous engageons à offrir des solutions innovantes pour répondre aux besoins énergétiques de nos clients, tout en contribuant activement à la transition vers une énergie propre et renouvelable.
+                L'objectif principal d'EGENT TOGO est de démocratiser l'accès à l'énergie solaire au Togo, tout en formant une nouvelle génération de techniciens experts au sein du CREFER pour garantir l'excellence et la durabilité des installations énergétiques à travers la région.
               </p>
             </div>
 
@@ -163,12 +165,12 @@
               <div class="flex items-center gap-4 mb-8">
                 <div class="w-2 h-16 bg-gradient-to-b from-blue-600 to-transparent rounded-full"></div>
                 <div>
-                  <p class="text-[#FF9D35] font-semibold mb-1 text-sm uppercase tracking-widest animate-slideInDown">Notre Vision</p>
+                  <p class="text-[#FF9D35] font-semibold mb-1 text-sm uppercase tracking-widest animate-slideInDown"></p>
                   <h2 class="text-4xl md:text-5xl font-black text-[#016E98] animate-slideInDown animation-delay-200">NOTRE VISION</h2>
                 </div>
               </div>
               <p class="text-lg text-gray-700 leading-relaxed animate-fadeInUp animation-delay-400">
-                Notre vision chez EGENT TOGO est de devenir un leader reconnu dans le domaine des énergies renouvelables en offrant des solutions fiables, durables et innovantes. Nous aspirons à jouer un rôle essentiel dans la création d'un avenir énergétique plus propre et à contribuer au bien-être de nos clients, de nos communautés et de notre planète.
+                Notre vision est de devenir le leader incontesté de la transition énergétique en Afrique de l'Ouest. Nous aspirons à un Togo où chaque foyer, chaque ferme et chaque entreprise dispose d'une énergie propre, inépuisable et abordable.
               </p>
             </div>
           </div>
@@ -211,7 +213,7 @@
                 </div>
                 <h3 class="text-lg font-black text-[#016E98]">Équipement de Qualité</h3>
                 <p class="text-sm text-gray-600 leading-relaxed">
-                  Nous sélectionnons uniquement des équipements premium certifiés conformes aux normes internationales pour assurer performance et durabilité maximales.
+                  Nous sélectionnons uniquement des équipements conformes aux normes internationales pour assurer performance et durabilité maximales.
                 </p>
               </div>
 

@@ -204,6 +204,27 @@
       </div>
     </section>
 
+    <!-- Map Section -->
+    <section id="map-section" class="bg-white py-20 md:py-32 animate-fadeInUp">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-black text-[#EE6D08] mb-4 leading-tight animate-slideInDown">Visitez-nous</h2>
+          <p class="text-gray-600 text-lg animate-fadeInUp animation-delay-200">Trouvez notre localisation sur la carte</p>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl h-96 md:h-96 border-4 border-gray-100 hover:shadow-3xl transition-all duration-300 animate-fadeInUp animation-delay-400">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.google.com/maps/d/u/0/embed?mid=1y_tbAMeuz_ifDLafJ3l6Y68Rn0bB8k0" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section id="cta-section" class="bg-white py-20 md:py-32">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fadeInUp">
@@ -264,7 +285,7 @@ const galleryImages = [
   {
     title: 'Lampadaires LED montés',
     category: 'Lampadaires LED',
-    src: new URL('@/assets/images/lampandaire_monté.jpg', import.meta.url).href
+    src: new URL('@/assets/images/lampandaire_monté3.jpg', import.meta.url).href
   },
   {
     title: 'Installation lampadaire LED',

@@ -324,10 +324,10 @@ const faqs = ref([
     question: 'Offrez-vous une garantie sur les installations ?',
     answer: 'Oui, nous proposons une garantie complète sur nos installations et maintenons une disponibilité pour le suivi technique.'
   },
-  {
-    question: 'Comment puis-je suivre ma demande ?',
-    answer: 'Après soumission, un numéro de suivi vous sera attribué. Vous pourrez nous contacter avec ce numéro pour avoir des nouvelles de votre dossier.'
-  }
+  // {
+  //   question: 'Comment puis-je suivre ma demande ?',
+  //   answer: 'Après soumission, un numéro de suivi vous sera attribué. Vous pourrez nous contacter avec ce numéro pour avoir des nouvelles de votre dossier.'
+  // }
 ])
 
 const toggleFAQ = (index) => {

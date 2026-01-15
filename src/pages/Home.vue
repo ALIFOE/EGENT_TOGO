@@ -28,7 +28,7 @@
       </div>
     </section>
     <!-- Contact Info Section - déborde sur la section blanche -->
-    <div class="px-4 -mt-12 mb-12 relative z-10 animate-fadeInUp animation-delay-600">
+    <!-- <div class="px-4 -mt-12 mb-12 relative z-10 animate-fadeInUp animation-delay-600">
       <div class="max-w-7xl mx-auto bg-[#2F7914] rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
         <div class="px-6 lg:px-8 py-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 items-center">
@@ -66,7 +66,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- About Section -->
     <section id="about-section" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24">
@@ -74,14 +74,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <!-- Content -->
           <div class="order-2 md:order-1 transition-all duration-1000" :class="aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'">
-            <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">À PROPOS DE NOUS</p>
-            <h2 class="text-4xl md:text-5xl font-black text-[#016E98] mb-6 leading-tight">VOTRE AVENIR D'AUTONOMIE ÉNERGÉTIQUE AVEC NOUS</h2>
+            <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">L’EXPERTISE SOLAIRE AU TOGO</p>
+            <h2 class="text-4xl md:text-5xl font-black text-[#016E98] mb-6 leading-tight">LEADER DE VOTRE TRANSITION ÉNERGÉTIQUE.</h2>
             
             <p class="text-gray-600 mb-8 leading-relaxed text-lg">
-              Chez EGENT TOGO, notre objectif est de fournir des solutions énergétiques durables en se spécialisant dans la fourniture et l'installation d'équipements solaires ainsi que dans l'électricité générale. Depuis 2015, nous accompagnons les particuliers et les entreprises togolaises vers l'autonomie énergétique.
+              Depuis 2019, EGENT TOGO s’impose comme la référence en solutions solaires à Lomé et dans la sous-région. Nous ne nous contentons pas d’installer des panneaux : nous concevons des systèmes durables qui garantissent la continuité de vos activités et de votre confort.
             </p>
 
-            <button @click="navigateTo('/a-propos')" class="btn-primary rounded-lg px-8 py-3 text-lg font-semibold hover:scale-105 transition-transform duration-300">En savoir plus</button>
+            <button @click="navigateTo('/a-propos')" class="btn-primary rounded-lg px-8 py-3 text-lg font-semibold hover:scale-105 transition-transform duration-300">Confier mon projet à un expert</button>
           </div>
 
           <!-- Image -->
@@ -122,7 +122,7 @@
             
             <!-- Text Content -->
             <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
-              <h3 class="text-2xl md:text-3xl font-black text-white">ÉNÉGIE<br>SOLAIRE</h3>
+              <h3 class="text-2xl md:text-3xl font-black text-white">ÉNERGIE<br>SOLAIRE</h3>
             </div>
             
             <!-- Button -->
@@ -147,7 +147,7 @@
             
             <!-- Text Content -->
             <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
-              <h3 class="text-2xl md:text-3xl font-black text-white">ELECTRICITE<br>GENERALE</h3>
+              <h3 class="text-2xl md:text-3xl font-black text-white">ÉLECTRICITE<br>GÉNERALE</h3>
             </div>
             
             <!-- Button -->
@@ -172,7 +172,7 @@
             
             <!-- Text Content -->
             <div class="absolute inset-0 flex items-end justify-between p-6 rounded-3xl">
-              <h3 class="text-2xl md:text-3xl font-black text-white">CLIMATISATION<br>FROID</h3>
+              <h3 class="text-2xl md:text-3xl font-black text-white">CLIMATISATION<br>& FROID</h3>
             </div>
             
             <!-- Button -->

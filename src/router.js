@@ -4,8 +4,11 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Services from './pages/Services.vue'
+import ServiceDetail from './pages/ServiceDetail.vue'
 import Products from './pages/Products.vue'
 import ProductDetail from './pages/ProductDetail.vue'
+import Projects from './pages/Projects.vue'
+import ProjectDetail from './pages/ProjectDetail.vue'
 import Gallery from './pages/Gallery.vue'
 import News from './pages/News.vue'
 import ArticleDetail from './pages/ArticleDetail.vue'
@@ -32,6 +35,12 @@ const routes = [
     meta: { title: 'Services' }
   },
   {
+    path: '/service/:slug',
+    name: 'ServiceDetail',
+    component: ServiceDetail,
+    meta: { title: 'Détail Service' }
+  },
+  {
     path: '/produits',
     name: 'Products',
     component: Products,
@@ -42,6 +51,18 @@ const routes = [
     name: 'ProductDetail',
     component: ProductDetail,
     meta: { title: 'Détail Produit' }
+  },
+  {
+    path: '/projets',
+    name: 'Projects',
+    component: Projects,
+    meta: { title: 'Projets' }
+  },
+  {
+    path: '/projets/:slug',
+    name: 'ProjectDetail',
+    component: ProjectDetail,
+    meta: { title: 'Détail Projet' }
   },
   {
     path: '/actualites',

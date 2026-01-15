@@ -113,58 +113,10 @@
 
         <!-- Services Grid - Responsive -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 lg:mb-16">
-          <!-- Service 1: Électricité Générale -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-400">
-            <!-- Image Container with Zoom Effect -->
-            <div class="absolute inset-0 overflow-hidden rounded-3xl">
-              <img 
-                src="/src/assets/images/chauffage_egent.jpg" 
-                alt="Électricité générale"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            
-            <!-- Gradient Overlay (stays still) -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
-            
-            <!-- Text Content -->
-            <div class="absolute inset-0 flex items-end justify-between p-4 sm:p-6 rounded-3xl">
-              <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">ÉLECTRICITÉ<br>GÉNÉRALE</h3>
-            </div>
-            
-            <!-- Button -->
-            <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-all duration-300 ring-[8px] sm:ring-[10px] md:ring-[12px] ring-white shadow-lg hover:scale-110 group-hover:bg-[#1f5009]">
-              <i class="fas fa-arrow-right text-white text-sm sm:text-base md:text-lg"></i>
-            </div>
-          </div>
-
-          <!-- Service 2: Climatisation & Froid -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-500">
-            <!-- Image Container with Zoom Effect -->
-            <div class="absolute inset-0 overflow-hidden rounded-3xl">
-              <img 
-                src="/src/assets/images/photo_chantier.jpg" 
-                alt="Climatisation"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            
-            <!-- Gradient Overlay (stays still) -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
-            
-            <!-- Text Content -->
-            <div class="absolute inset-0 flex items-end justify-between p-4 sm:p-6 rounded-3xl">
-              <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">CLIMATISATION<br>& FROID</h3>
-            </div>
-            
-            <!-- Button -->
-            <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-all duration-300 ring-[8px] sm:ring-[10px] md:ring-[12px] ring-white shadow-lg hover:scale-110 group-hover:bg-[#1f5009]">
-              <i class="fas fa-arrow-right text-white text-sm sm:text-base md:text-lg"></i>
-            </div>
-          </div>
-
-          <!-- Service 3: Énergie Solaire -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-600">
+          <!-- Service 1: Énergie solaire -->
+          <div 
+            @click="navigateToService('energie-solaire')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-400 cursor-pointer">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -188,8 +140,64 @@
             </div>
           </div>
 
+          <!-- Service 2: Électricité générale -->
+          <div 
+            @click="navigateToService('electricite-generale')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-500 cursor-pointer">
+            <!-- Image Container with Zoom Effect -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+              <img 
+                src="/src/assets/images/photo_chantier.jpg" 
+                alt="Électricité générale"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            
+            <!-- Gradient Overlay (stays still) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute inset-0 flex items-end justify-between p-4 sm:p-6 rounded-3xl">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">ÉLECTRICITÉ<br>GÉNERALE</h3>
+            </div>
+            
+            <!-- Button -->
+            <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-all duration-300 ring-[8px] sm:ring-[10px] md:ring-[12px] ring-white shadow-lg hover:scale-110 group-hover:bg-[#1f5009]">
+              <i class="fas fa-arrow-right text-white text-sm sm:text-base md:text-lg"></i>
+            </div>
+          </div>
+
+          <!-- Service 3: Climatisation & Froid -->
+          <div 
+            @click="navigateToService('climatisation-froid')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-600 cursor-pointer">
+            <!-- Image Container with Zoom Effect -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+              <img 
+                src="/src/assets/images/chauffage_egent.jpg" 
+                alt="Climatisation & Froid"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            
+            <!-- Gradient Overlay (stays still) -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent rounded-3xl"></div>
+            
+            <!-- Text Content -->
+            <div class="absolute inset-0 flex items-end justify-between p-4 sm:p-6 rounded-3xl">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">CLIMATISATION <br>& FROID</h3>
+            </div>
+            
+            <!-- Button -->
+            <div class="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 w-14 sm:w-16 md:w-20 h-14 sm:h-16 md:h-20 bg-[#2F7914] rounded-full flex items-center justify-center transition-all duration-300 ring-[8px] sm:ring-[10px] md:ring-[12px] ring-white shadow-lg hover:scale-110 group-hover:bg-[#1f5009]">
+              <i class="fas fa-arrow-right text-white text-sm sm:text-base md:text-lg"></i>
+            </div>
+          </div>
+
           <!-- Service 4: Plomberie -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-400">
+          <div 
+            @click="navigateToService('plomberie')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-400 cursor-pointer">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -214,7 +222,9 @@
           </div>
 
           <!-- Service 5: Fourniture d'Équipements -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-500">
+          <div 
+            @click="navigateToService('fourniture-equipements')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-500 cursor-pointer">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -239,7 +249,9 @@
           </div>
 
           <!-- Service 6: Consulting -->
-          <div class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-600">
+          <div 
+            @click="navigateToService('consulting')"
+            class="group relative overflow-hidden rounded-3xl h-64 sm:h-72 md:h-80 lg:h-96 hover:shadow-2xl transition-shadow duration-300 animate-fadeInUp animation-delay-600 cursor-pointer">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -265,11 +277,11 @@
         </div>
 
         <!-- CTA Button -->
-        <div class="text-center animate-fadeInUp animation-delay-800">
+        <!-- <div class="text-center animate-fadeInUp animation-delay-800">
           <button class="bg-[#2F7914] hover:bg-[#1f5009] text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
             En savoir plus
           </button>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -343,6 +355,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useCursorFollowText } from '../composables/useCursorFollowText'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 useCursorFollowText()
 
@@ -352,6 +367,16 @@ const heroInView = ref(false)
 const servicesInView = ref(false)
 const mainDoeuvreInView = ref(false)
 const pannesInView = ref(false)
+
+const navigateToService = (slug) => {
+  router.push(`/service/${slug}`)
+}
+
+const scrollToServices = () => {
+  if (servicesSection.value) {
+    servicesSection.value.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 const setupObserver = () => {
   const options = {
@@ -383,12 +408,6 @@ const setupObserver = () => {
   observer.observe(document.getElementById('services-section'))
   observer.observe(document.getElementById('maindoeuvre-section'))
   observer.observe(document.getElementById('pannes-section'))
-}
-
-const scrollToServices = () => {
-  if (servicesSection.value) {
-    servicesSection.value.scrollIntoView({ behavior: 'smooth' })
-  }
 }
 
 onMounted(() => {
