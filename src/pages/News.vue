@@ -233,7 +233,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/headepage.webp" 
                 alt="Inauguration du nouveau centre"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -261,7 +261,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/photo_conf3.jpg" 
                 alt="Partenariat international"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -289,7 +289,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/prix1.jpg" 
                 alt="Prix et reconnaissance"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -317,7 +317,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/photo_chantier.jpg" 
                 alt="Événement clients"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -345,7 +345,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/photo_chantier2.jpg" 
                 alt="Durabilité"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -373,7 +373,7 @@
             <!-- Image -->
             <div class="relative overflow-hidden h-72 bg-gray-200">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" 
+                src="@/assets/images/photo_conf2.jpg" 
                 alt="Ressources humaines"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />

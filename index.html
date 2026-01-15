@@ -1,17 +1,82 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="./src/assets/images/logo_marque.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EGENT TOGO </title>
+    
+    <!-- Métadonnées de base -->
+    <title>EGENT-TOGO - Solutions Innovantes en Électricité et Énergie Solaire</title>
+    <meta name="description" content="Solutions innovantes en électricité, énergie solaire et services techniques au Togo. Formation professionnelle, installation solaire et climatisation." />
+    <meta name="keywords" content="électricité, énergie solaire, services techniques, Togo, formation professionnelle, climatisation, panneaux solaires" />
+    <meta name="author" content="EGENT-TOGO" />
+    <meta name="theme-color" content="#016E98" />
+    
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="EGENT-TOGO - Solutions Innovantes" />
+    <meta property="og:description" content="Solutions innovantes en électricité, énergie solaire et services techniques au Togo" />
+    <meta property="og:image" content="./src/assets/images/logo_marque.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="EGENT-TOGO - Solutions Innovantes" />
+    <meta name="twitter:description" content="Solutions innovantes en électricité, énergie solaire et services techniques au Togo" />
+    <meta name="twitter:image" content="./src/assets/images/logo_marque.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/" />
+    
     <script>
       (function(){
-        let redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect !== location.href) {
-          history.replaceState(null, null, redirect);
+        // Détecter et mettre à jour les URLs dynamiquement
+        const getBaseUrl = () => {
+          const domain = window.location.hostname
+          if (domain.includes('github.io')) {
+            return 'https://alifoe.github.io/EGENT_TOGO'
+          } else if (domain.includes('egenttogo.com')) {
+            return 'https://www.egenttogo.com'
+          }
+          return window.location.origin
         }
+
+        const updateMetaTags = () => {
+          const baseUrl = getBaseUrl()
+          const imageUrl = baseUrl + '/src/assets/images/logo_marque.png'
+          const pageUrl = baseUrl + '/'
+
+          // Mettre à jour og:image
+          let ogImage = document.querySelector('meta[property="og:image"]')
+          if (ogImage) ogImage.content = imageUrl
+
+          // Mettre à jour og:url
+          let ogUrl = document.querySelector('meta[property="og:url"]')
+          if (!ogUrl) {
+            ogUrl = document.createElement('meta')
+            ogUrl.setAttribute('property', 'og:url')
+            document.head.appendChild(ogUrl)
+          }
+          ogUrl.content = pageUrl
+
+          // Mettre à jour twitter:image
+          let twitterImage = document.querySelector('meta[name="twitter:image"]')
+          if (twitterImage) twitterImage.content = imageUrl
+
+          // Mettre à jour canonical
+          let canonical = document.querySelector('link[rel="canonical"]')
+          if (canonical) canonical.href = pageUrl
+        }
+
+        // Redirect handler pour GitHub Pages SPA
+        let redirect = sessionStorage.redirect
+        delete sessionStorage.redirect
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect)
+        }
+
+        // Mettre à jour les meta tags
+        updateMetaTags()
       })();
     </script>
   </head>

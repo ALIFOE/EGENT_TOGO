@@ -199,6 +199,14 @@ import { computed, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCursorFollowText } from '../composables/useCursorFollowText'
 
+// Import images
+import imgHeadepage from '@/assets/images/headepage.webp'
+import imgPhotoConf3 from '@/assets/images/photo_conf3.jpg'
+import imgPrix1 from '@/assets/images/prix1.jpg'
+import imgPhotoConf2 from '@/assets/images/photo_conf2.jpg'
+import imgPhotoChantier2 from '@/assets/images/photo_chantier2.jpg'
+import imgPhotoChantier from '@/assets/images/photo_chantier.jpg'
+
 const route = useRoute()
 const router = useRouter()
 useCursorFollowText()
@@ -215,7 +223,7 @@ const articlesData = {
     title: 'Inauguration du nouveau centre de formation',
     category: 'Actualité',
     date: '5 Jan 2026',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgHeadepage,
     excerpt: 'Découvrez le lancement officiel de notre nouveau centre de formation équipé des dernières technologies.',
     content: [
       'EGENT-TOGO a le plaisir d\'annoncer l\'inauguration officielle de son nouveau centre de formation dernier cri. Situé au cœur de Lomé, ce centre moderne dispose des infrastructures les plus avancées pour offrir une formation de qualité.',
@@ -230,7 +238,7 @@ const articlesData = {
     title: 'Partenariat international stratégique',
     category: 'Partenariat',
     date: '2 Jan 2026',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgPhotoConf3,
     excerpt: 'EGENT-TOGO établit un partenariat stratégique avec des leaders mondiaux du secteur.',
     content: [
       'EGENT-TOGO a signé un accord de partenariat historique avec plusieurs entreprises internationales majeures. Ce partenariat vise à renforcer notre capacité à offrir des solutions innovantes et durables.',
@@ -245,7 +253,7 @@ const articlesData = {
     title: 'Prix et reconnaissance dans l\'industrie',
     category: 'Reconnaissance',
     date: '30 Déc 2025',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgPrix1,
     excerpt: 'EGENT-TOGO reçoit plusieurs distinctions pour son excellence opérationnelle.',
     content: [
       'EGENT-TOGO a remporté le prestigieux prix "Excellence et Innovation 2025" décerné par la chambre de commerce du Togo. Cette reconnaissance récompense nos efforts continus en matière de qualité et d\'innovation.',
@@ -260,7 +268,7 @@ const articlesData = {
     title: 'Expansion de notre équipe - Ressources Humaines',
     category: 'Ressources Humaines',
     date: '25 Déc 2025',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgPhotoConf2,
     excerpt: 'Nous recrutons 50 nouveaux professionnels pour renforcer nos équipes.',
     content: [
       'EGENT-TOGO accélère son recrutement et prévoit d\'intégrer 50 nouveaux collaborateurs au cours du premier trimestre 2026. Cette expansion reflète notre croissance continue et notre ambition de servir davantage de clients.',
@@ -275,7 +283,7 @@ const articlesData = {
     title: 'Notre engagement en faveur de la durabilité',
     category: 'Durabilité',
     date: '22 Déc 2025',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgPhotoChantier2,
     excerpt: 'EGENT-TOGO s\'engage pour la protection de l\'environnement et le développement durable.',
     content: [
       'EGENT-TOGO a lancé un programme ambitieux de durabilité visant à réduire son empreinte carbone de 40% d\'ici 2030. Ce programme comprend plusieurs initiatives concrètes pour l\'environnement.',
@@ -290,7 +298,7 @@ const articlesData = {
     title: 'Événement clients - Gala de reconnaissance 2026',
     category: 'Événement',
     date: '20 Déc 2025',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
+    image: imgPhotoChantier,
     excerpt: 'Célébrez avec nous notre gala annuel de reconnaissance clients.',
     content: [
       'EGENT-TOGO est ravi de vous inviter à son Gala de Reconnaissance Clients 2026, prévu le 15 février à Lomé. Cet événement prestigieux réunit nos plus fidèles clients pour célébrer une année de succès mutuels.',

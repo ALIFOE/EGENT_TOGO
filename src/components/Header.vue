@@ -77,6 +77,8 @@
             class="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-all duration-300"
             @click="mobileMenuOpen = !mobileMenuOpen"
             :class="mobileMenuOpen ? 'bg-gray-100' : ''"
+            title="Ouvrir/Fermer le menu"
+            aria-label="Ouvrir/Fermer le menu"
           >
             <svg 
               class="w-6 h-6 transition-transform duration-300" 
