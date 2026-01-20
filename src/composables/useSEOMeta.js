@@ -1,6 +1,7 @@
 /**
  * Composable pour gérer les métadonnées Open Graph et les métadonnées de prévisualisation
  * Optimisé pour la prévisualisation de lien sur Facebook, LinkedIn, Twitter et autres réseaux sociaux
+ * Robot de détection automatique des métadonnées pour partage sur les réseaux sociaux
  */
 
 export function useSEOMeta() {
@@ -24,14 +25,66 @@ export function useSEOMeta() {
     return `${protocol}//${hostname}`
   }
 
+  /**
+   * Convertir une image locale en URL absolue
+   * Gère les images importées de webpack et les chemins relatifs
+   */
+  const resolveImageUrl = (imagePath) => {
+    if (!imagePath) return null
+    
+    const baseUrl = getBaseUrl()
+    
+    // Si c'est déjà une URL absolue (http/https)
+    if (imagePath.startsWith('http')) {
+      return imagePath
+    }
+    
+    // Si c'est une URL de données (base64)
+    if (imagePath.startsWith('data:')) {
+      return imagePath
+    }
+    
+    // Si c'est un blob Webpack (image importée en Vue)
+    if (imagePath.includes('/') || imagePath.includes('\\')) {
+      // Pour les images dans src/assets, on les sert depuis /src/assets/
+      return `${baseUrl}/src${imagePath.startsWith('/') ? '' : '/'}${imagePath}`
+    }
+    
+    // Chemin par défaut
+    return `${baseUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`
+  }
+
+  /**
+   * Valider que les métadonnées sont correctement définies
+   */
+  const validateMetaTags = () => {
+    const checks = {
+      ogTitle: !!document.querySelector('meta[property="og:title"]'),
+      ogDescription: !!document.querySelector('meta[property="og:description"]'),
+      ogImage: !!document.querySelector('meta[property="og:image"]'),
+      ogUrl: !!document.querySelector('meta[property="og:url"]'),
+      twitterCard: !!document.querySelector('meta[name="twitter:card"]'),
+      twitterImage: !!document.querySelector('meta[name="twitter:image"]'),
+      description: !!document.querySelector('meta[name="description"]'),
+      canonical: !!document.querySelector('link[rel="canonical"]')
+    }
+    
+    const isValid = Object.values(checks).every(v => v === true)
+    
+    console.log('🤖 [SEO Meta Validator] Vérification des métadonnées:', {
+      isValid,
+      details: checks,
+      timestamp: new Date().toLocaleTimeString()
+    })
+    
+    return { isValid, details: checks }
+  }
+
   const setMeta = (title, description, imagePath, pathname = '/', options = {}) => {
     const baseUrl = getBaseUrl()
     
-    // Convertir le chemin de l'image en URL absolue
-    let imageUrl = imagePath
-    if (imagePath && !imagePath.startsWith('http')) {
-      imageUrl = `${baseUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`
-    }
+    // Résoudre l'URL de l'image avec le robot de détection
+    const imageUrl = resolveImageUrl(imagePath)
     
     // Construire l'URL complète
     const fullUrl = `${baseUrl}${pathname}`
@@ -54,6 +107,7 @@ export function useSEOMeta() {
       { property: 'og:image:width', content: imageWidth },
       { property: 'og:image:height', content: imageHeight },
       { property: 'og:image:type', content: 'image/webp' },
+      { property: 'og:image:secure_url', content: imageUrl }, // URL sécurisée
       { property: 'og:url', content: fullUrl },
       { property: 'og:type', content: ogType },
       { property: 'og:site_name', content: siteName },
@@ -64,11 +118,15 @@ export function useSEOMeta() {
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: imageUrl },
+      { name: 'twitter:image:alt', content: title },
       { name: 'twitter:site', content: '@egenttogo' },
+      { name: 'twitter:creator', content: '@egenttogo' },
       
       // Meta Description et Keywords
       { name: 'description', content: description },
       { name: 'keywords', content: 'électricité, énergie solaire, climatisation, Togo, EGENT' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+      { name: 'language', content: 'French' },
       
       // Canonical URL
       { rel: 'canonical', href: fullUrl },
@@ -112,17 +170,55 @@ export function useSEOMeta() {
       }
     })
 
-    // Log pour debug
-    console.log('SEO Meta Tags actualisés:', {
+    // Ajouter les données structurées JSON-LD pour meilleure reconnaissance par les moteurs
+    const jsonLdData = {
+      '@context': 'https://schema.org',
+      '@type': ogType === 'article' ? 'NewsArticle' : 'WebPage',
+      headline: title,
+      description: description,
+      image: imageUrl,
+      url: fullUrl,
+      datePublished: new Date().toISOString(),
+      publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${baseUrl}/src/assets/images/logo.png` // Adapter le chemin si nécessaire
+        }
+      }
+    }
+
+    // Supprimer les anciennes données JSON-LD
+    const oldJsonLd = document.querySelector('script[type="application/ld+json"]')
+    if (oldJsonLd) oldJsonLd.remove()
+
+    // Ajouter les nouvelles données JSON-LD
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.textContent = JSON.stringify(jsonLdData)
+    document.head.appendChild(script)
+
+    // Log du robot de détection pour vérification
+    console.log('🤖 [SEO Meta Robot] Métadonnées mises à jour:', {
       title,
       description,
       imageUrl,
       fullUrl,
-      ogType
+      ogType,
+      baseTags: Object.keys(ogTags).length,
+      timestamp: new Date().toLocaleTimeString()
     })
+
+    // Valider après mise à jour
+    setTimeout(() => {
+      validateMetaTags()
+    }, 100)
   }
 
   return {
-    setMeta
+    setMeta,
+    validateMetaTags,
+    resolveImageUrl
   }
 }

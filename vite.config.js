@@ -19,10 +19,23 @@ const copy404Plugin = {
   }
 }
 
+// Plugin pour injecter le serveur de prerendering en variable globale
+const injectPrerenderServerPlugin = {
+  name: 'inject-prerender-server',
+  config(config, env) {
+    return {
+      define: {
+        __PRERENDER_SERVER__: JSON.stringify(process.env.VITE_PRERENDER_SERVER || ''),
+        __ENVIRONMENT__: JSON.stringify(process.env.VITE_ENVIRONMENT || 'development'),
+      }
+    }
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
   base: '/EGENT_TOGO/',
-  plugins: [vue(), copy404Plugin],
+  plugins: [vue(), copy404Plugin, injectPrerenderServerPlugin],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

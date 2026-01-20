@@ -1,6 +1,13 @@
+// Utiliser les chemins publics avec la base URL pour les images
+const panneau_montés = '/EGENT_TOGO/images/panneau_montés.jpg'
+const montage_panneau = '/EGENT_TOGO/images/montage_panneau.jpg'
+const montage_panneau2 = '/EGENT_TOGO/images/montage_panneau2.jpg'
+const chauffage_egent = '/EGENT_TOGO/images/chauffage_egent.jpg'
+const photo_chantier = '/EGENT_TOGO/images/photo_chantier.jpg'
+
 export const projects = [
   {
-    id: 1,
+    id: '1',
     slug: 'installation-solaire-residential',
     title: 'Installation Solaire Résidentielle - Lomé',
     category: 'Énergie Solaire',
@@ -28,11 +35,11 @@ export const projects = [
         <li>Durée de vie estimée: 25+ ans</li>
       </ul>
     `,
-    mainImage: new URL('../assets/images/panneau_montés.jpg', import.meta.url).href,
+    mainImage: panneau_montés,
     images: [
-      new URL('../assets/images/panneau_montés.jpg', import.meta.url).href,
-      new URL('../assets/images/montage_panneau.jpg', import.meta.url).href,
-      new URL('../assets/images/montage_panneau2.jpg', import.meta.url).href
+      panneau_montés,
+      montage_panneau,
+      montage_panneau2
     ],
     team: [
       { name: 'Ingénieur Principal', title: 'Chef de projet' },
@@ -45,6 +52,21 @@ export const projects = [
       { metric: '25+ ans', description: 'Durée de vie système' },
       { metric: '10 ans', description: 'Garantie' }
     ],
+    mainCharacteristics: [
+      'Puissance installée: 5kWc',
+      'Nombre de panneaux: 12 panneaux 400W',
+      'Onduleur: Hybrid 5kW',
+      'Batterie: 10kWh LiFePO4',
+      'Durée d\'installation: 5 jours',
+      'Investissement: 2,5 millions FCFA'
+    ],
+    advantages: [
+      'Autonomie énergétique 80% du temps',
+      'Réduction de la facture énergétique de 85%',
+      'Système de monitoring en temps réel',
+      'Garantie 10 ans sur l\'installation',
+      'Durée de vie estimée: 25+ ans'
+    ],
     testimonial: {
       author: 'M. Koffi A.',
       role: 'Propriétaire résidence',
@@ -52,7 +74,7 @@ export const projects = [
     }
   },
   {
-    id: 2,
+    id: '2',
     slug: 'installation-climatisation-commercial',
     title: 'Système de Climatisation Commercial - Kofi',
     category: 'Climatisation & Froid',
@@ -80,10 +102,10 @@ export const projects = [
         <li>Maintenance annuelle incluse 2 ans</li>
       </ul>
     `,
-    mainImage: new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href,
+    mainImage: chauffage_egent,
     images: [
-      new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href,
-      new URL('../assets/images/photo_chantier.jpg', import.meta.url).href
+      chauffage_egent,
+      photo_chantier
     ],
     team: [
       { name: 'Chef d\'équipe Climatisation', title: 'Supervision' },
@@ -96,6 +118,21 @@ export const projects = [
       { metric: '30%', description: 'Économie énergétique' },
       { metric: '4 zones', description: 'Contrôle indépendant' }
     ],
+    mainCharacteristics: [
+      'Type: Système multi-split inverter',
+      'Surface climatisée: 500m²',
+      'Capacité frigorifique: 24 kW',
+      'Nombre de zones: 4 zones indépendantes',
+      'Consommation: 30% moins qu\'un système traditionnel',
+      'Durée d\'installation: 8 jours'
+    ],
+    advantages: [
+      'Contrôle de température par zone',
+      'Consommation énergétique réduite',
+      'Climatisation silencieuse (18dB)',
+      'Filtration HEPA intégrée',
+      'Maintenance annuelle incluse 2 ans'
+    ],
     testimonial: {
       author: 'Directeur Commercial Kofi',
       role: 'Responsable bâtiment',
@@ -103,7 +140,7 @@ export const projects = [
     }
   },
   {
-    id: 3,
+    id: '3',
     slug: 'installation-electrique-hotel',
     title: 'Rénovation Électrique Hôtel 3 étoiles - Aného',
     category: 'Électricité Générale',
@@ -131,10 +168,25 @@ export const projects = [
         <li>Zéro interruption service pendant rénovation</li>
       </ul>
     `,
-    mainImage: new URL('../assets/images/photo_chantier.jpg', import.meta.url).href,
+    mainImage: photo_chantier,
     images: [
-      new URL('../assets/images/photo_chantier.jpg', import.meta.url).href,
-      new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href
+      photo_chantier,
+      chauffage_egent
+    ],
+    mainCharacteristics: [
+      'Création de nouveaux tableaux électriques',
+      'Pose de câblage haute sécurité',
+      'Installation système de secours (groupe électrogène)',
+      'Système de protection incendie',
+      'Lighting LED haute efficacité',
+      'Certification conformité normes NFC 15-100'
+    ],
+    advantages: [
+      'Sécurité électrique certifiée',
+      'Consommation énergétique réduite de 40%',
+      'Système de secours automatique',
+      'Qualité de distribution améliorée',
+      'Zéro interruption service pendant rénovation'
     ],
     team: [
       { name: 'Chef d\'équipe électrique', title: 'Responsable chantier' },
@@ -155,7 +207,7 @@ export const projects = [
     }
   },
   {
-    id: 4,
+    id: '4',
     slug: 'installation-solaire-ferme',
     title: 'Installation Solaire Ferme Piscicole - Tsévié',
     category: 'Énergie Solaire',
@@ -184,10 +236,26 @@ export const projects = [
         <li>ROI prévu: 4 ans</li>
       </ul>
     `,
-    mainImage: new URL('../assets/images/panneau_montés.jpg', import.meta.url).href,
+    mainImage: panneau_montés,
     images: [
-      new URL('../assets/images/panneau_montés.jpg', import.meta.url).href,
-      new URL('../assets/images/montage_panneau.jpg', import.meta.url).href
+      panneau_montés,
+      montage_panneau
+    ],
+    mainCharacteristics: [
+      'Puissance: 10kWc (25 panneaux 400W)',
+      'Onduleur: 10kW tri-phasé',
+      'Batterie: 20kWh LiFePO4',
+      'Pompes: 2 pompes submersibles 7,5kW',
+      'Aération: Système automatique avec variateur',
+      'Monitoring: Système IoT avec app mobile'
+    ],
+    advantages: [
+      'Autonomie énergétique 100%',
+      'Production piscicole augmentée de 30%',
+      'Zéro coût carburant (ancien groupe électrogène)',
+      'Équipements plus durables sans vibrations',
+      'Contrôle à distance des paramètres',
+      'ROI prévu: 4 ans'
     ],
     team: [
       { name: 'Ingénieur en énergie renouvelable', title: 'Chef de projet' },

@@ -1,10 +1,17 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { watch } from 'vue'
+import { watch, onMounted } from 'vue'
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
+import { useAuth } from './composables/useAuth'
 
 const router = useRouter()
+const { initializeAuth } = useAuth()
+
+// Initialiser l'authentification au démarrage de l'app
+onMounted(() => {
+  initializeAuth()
+})
 
 const updateTitle = (route) => {
   const pageTitle = route.meta?.title || 'Accueil'
@@ -22,11 +29,11 @@ watch(() => router.currentRoute.value, (newRoute) => {
 
 <template>
   <div class="min-h-screen bg-white">
-    <Header />
-    <main class="pt-28">
+    <Header v-if="!router.currentRoute.value.meta?.hideLayout" />
+    <main :class="!router.currentRoute.value.meta?.hideLayout ? 'pt-28' : ''">
       <RouterView />
     </main>
-    <Footer />
+    <Footer v-if="!router.currentRoute.value.meta?.hideLayout" />
   </div>
 </template>
 

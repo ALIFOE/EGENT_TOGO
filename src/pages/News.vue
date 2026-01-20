@@ -219,182 +219,62 @@
     </section>
 
     <!-- News Grid Section -->
-    <section class="bg-gray-50 py-20 md:py-32">
+    <section class="bg-white py-20 md:py-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-20">
           <h2 class="text-4xl md:text-5xl font-black text-[#016E98] leading-tight mb-4">Derniers articles</h2>
           <div class="w-24 h-1.5 bg-gradient-to-r from-[#EE6D08] to-orange-500 rounded-full"></div>
         </div>
 
+        <!-- Loading State -->
+        <div v-if="loading" class="flex justify-center items-center py-20">
+          <div class="text-lg text-gray-600">⏳ Chargement des articles...</div>
+        </div>
+
+        <!-- Error State -->
+        <div v-else-if="error" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+          <p class="text-red-800">❌ Erreur lors du chargement des articles : {{ error }}</p>
+        </div>
+
         <!-- News Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          <!-- News Card 1 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
+        <div v-else-if="articles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Article Card (Dynamic) -->
+          <article 
+            v-for="(article, index) in articles" 
+            :key="article.id"
+            @click="navigateTo('/article/' + article.slug)"
+            class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer hover:scale-105"
+            :style="{ animationDelay: (0.1 * index) + 's' }"
+          >
             <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
+            <div class="relative overflow-hidden h-56 bg-gray-200">
               <img 
-                src="@/assets/images/headepage.webp" 
-                alt="Inauguration du nouveau centre"
+                :src="article.image" 
+                :alt="article.title"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                @error="(e) => e.target.src = 'https://images.unsplash.com/photo-1509391366360-2e0b3f3446ea?w=400&h=300&fit=crop'"
               />
               <!-- Category Badge -->
               <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Actualité
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                5 Jan 2026
+                {{ article.category || 'Actualité' }}
               </div>
             </div>
 
             <!-- Content -->
             <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">Découvrez le lancement officiel de notre nouveau centre de formation équipé des dernières technologies.</p>
-              <router-link to="/article/inauguration-nouveau-centre" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
+              <h3 class="text-xl font-bold text-[#016E98] mb-3 line-clamp-2">{{ article.title }}</h3>
+              <p class="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-2">{{ article.excerpt }}</p>
+              <div class="flex justify-between items-center mt-auto">
+                <span class="text-gray-500 text-xs">{{ article.date }}</span>
+                <span class="text-[#0392C7] font-bold group-hover:translate-x-1 transition-transform">→</span>
+              </div>
             </div>
           </article>
+        </div>
 
-          <!-- News Card 2 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
-            <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
-              <img 
-                src="@/assets/images/photo_conf3.jpg" 
-                alt="Partenariat international"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Partenariat
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                2 Jan 2026
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">EGENT-TOGO établit un partenariat stratégique avec des leaders mondiaux du secteur.</p>
-              <router-link to="/article/partenariat-international" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
-            </div>
-          </article>
-
-          <!-- News Card 3 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
-            <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
-              <img 
-                src="@/assets/images/prix1.jpg" 
-                alt="Prix et reconnaissance"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Reconnaissance
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                30 Déc 2025
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">EGENT-TOGO reçoit plusieurs distinctions pour son excellence opérationnelle.</p>
-              <router-link to="/article/prix-reconnaissance" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
-            </div>
-          </article>
-
-          <!-- News Card 4 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
-            <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
-              <img 
-                src="@/assets/images/photo_chantier.jpg" 
-                alt="Événement clients"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Événement
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                28 Déc 2025
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">Nous recrutons 50 nouveaux professionnels pour renforcer nos équipes.</p>
-              <router-link to="/article/ressources-humaines-equipe" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
-            </div>
-          </article>
-
-          <!-- News Card 5 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
-            <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
-              <img 
-                src="@/assets/images/photo_chantier2.jpg" 
-                alt="Durabilité"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Durabilité
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                25 Déc 2025
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">EGENT-TOGO s\'engage pour la protection de l\'environnement et le développement durable.</p>
-              <router-link to="/article/durabilite-engagement" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
-            </div>
-          </article>
-
-          <!-- News Card 6 -->
-          <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group flex flex-col h-full">
-            <!-- Image -->
-            <div class="relative overflow-hidden h-72 bg-gray-200">
-              <img 
-                src="@/assets/images/photo_conf2.jpg" 
-                alt="Ressources humaines"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <!-- Category Badge -->
-              <div class="absolute top-4 left-4 bg-[#EE6D08] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase">
-                Ressources Humaines
-              </div>
-              <!-- Date Badge -->
-              <div class="absolute bottom-4 right-4 bg-dark/80 text-white px-3 py-1.5 rounded-full text-xs font-semibold">
-                20 Déc 2025
-              </div>
-            </div>
-
-            <!-- Content -->
-            <div class="p-6 flex flex-col flex-grow">
-              <p class="text-gray-700 text-sm leading-relaxed mb-4">Célébrez avec nous notre gala annuel de reconnaissance clients.</p>
-              <router-link to="/article/evenement-clients" class="inline-flex items-center text-secondary font-bold text-sm hover:text-orange-600 transition-colors duration-300 mt-auto">
-                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
-              </router-link>
-            </div>
-          </article>
+        <!-- Empty State -->
+        <div v-else class="text-center py-20">
+          <p class="text-lg text-gray-600">Aucun article disponible pour le moment.</p>
         </div>
       </div>
     </section>
@@ -429,63 +309,40 @@
 </template>
 
 <script setup>
-import { useCursorFollowText } from '../composables/useCursorFollowText'
-import { useSEOMeta } from '../composables/useSEOMeta'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useSEOMeta } from '../composables/useSEOMeta'
+import { useFirebaseData } from '../composables/useFirebaseData'
 
-useCursorFollowText()
+const router = useRouter()
 const { setMeta } = useSEOMeta()
+const { articles, loading, error, initializeArticles } = useFirebaseData()
 
 const videoElement = ref(null)
 const videoLoaded = ref(false)
 
-const onLoadStart = () => {
-  console.log('Début du chargement de la vidéo...')
-}
-
 const onCanPlay = () => {
-  console.log('Vidéo prête à être lue')
   videoLoaded.value = true
-  if (videoElement.value) {
-    videoElement.value.play().catch(err => {
-      console.log('Erreur autoplay:', err)
-    })
-  }
 }
 
-const onVideoError = (e) => {
-  console.error('Erreur vidéo:', e)
+const onVideoError = () => {
   videoLoaded.value = false
 }
 
-onMounted(() => {
-  // Définir les métadonnées Open Graph pour la page Actualités
+onMounted(async () => {
+  await initializeArticles()
+  
   setMeta(
     'Actualités - EGENT-TOGO',
     'Restez informé des dernières nouvelles, innovations et réalisations d\'EGENT-TOGO en énergie solaire et durabilité.',
-    '/src/assets/images/panneau_montés.jpg',
+    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
     '/actualites'
   )
-  
-  if (videoElement.value) {
-    // Ajouter les écouteurs d'événements
-    videoElement.value.addEventListener('canplay', onCanPlay)
-    videoElement.value.addEventListener('error', onVideoError)
-    
-    // Essayer de jouer
-    const playPromise = videoElement.value.play()
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          videoLoaded.value = true
-          console.log('Autoplay réussi')
-        })
-        .catch(error => {
-          console.log('Autoplay non disponible:', error)
-        })
-    }
-  }
 })
+
+const navigateTo = (path) => {
+  router.push(path)
+}
 </script>
 
 <style scoped>

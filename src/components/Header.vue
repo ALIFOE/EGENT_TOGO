@@ -72,6 +72,19 @@
             Demander un devis
           </button>
 
+          <!-- Logout Button (visible only if authenticated) -->
+          <button 
+            v-if="isAuthenticated"
+            @click="handleLogout"
+            class="hidden lg:flex bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg transition-all duration-300 text-xs items-center space-x-1"
+            title="Se déconnecter"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Déconnexion</span>
+          </button>
+
           <!-- Mobile Menu Button -->
           <button 
             class="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-all duration-300"
@@ -167,6 +180,13 @@
               <button class="w-full bg-[#EE6D08] hover:bg-[#016E98] text-white font-black px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" @click="navigateTo('/devis'); mobileMenuOpen = false">
                 Demander un devis
               </button>
+              <button 
+                v-if="isAuthenticated"
+                @click="handleLogout; mobileMenuOpen = false"
+                class="w-full bg-red-600 hover:bg-red-700 text-white font-black px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Se déconnecter
+              </button>
             </div>
           </div>
         </div>
@@ -176,14 +196,19 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useAuth } from '../composables/useAuth'
 
 const mobileMenuOpen = ref(false)
 const route = useRoute()
 const router = useRouter()
 const isScrolling = ref(false)
 const lastScrollY = ref(0)
+const { user, logout } = useAuth()
+
+// Computed pour vérifier si l'utilisateur est authentifié
+const isAuthenticated = computed(() => !!user.value)
 
 // Détecte le scroll vers le bas
 const handleScroll = () => {
@@ -204,6 +229,17 @@ const isActive = (path) => {
 // Navigation
 const navigateTo = (path) => {
   router.push(path)
+}
+
+// Déconnexion
+const handleLogout = async () => {
+  try {
+    await logout()
+    mobileMenuOpen.value = false
+    router.push('/')
+  } catch (error) {
+    console.error('Erreur de déconnexion:', error)
+  }
 }
 
 // Écoute le scroll

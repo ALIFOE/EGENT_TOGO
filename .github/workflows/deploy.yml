@@ -33,6 +33,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_ENVIRONMENT: github-pages
+          VITE_PRERENDER_SERVER: ${{ secrets.PRERENDER_SERVER_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

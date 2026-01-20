@@ -115,98 +115,66 @@
         </div>
 
         <!-- Products Grid - 3 Column Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-end">
-          <!-- Product 1: Armoire Billy -->
-          <div class="flex flex-col h-full animate-fadeInUp animation-delay-400">
-            <div class="relative bg-blue-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group">
-              <img 
-                src="/src/assets/images/armoireBilly_monté.jpg" 
-                alt="Armoire Billy"
-                class="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div class="bg-white p-6">
-                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Armoire Billy</h3>
-                <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                  Solution anti délestage performante pour éviter les coupures de courant. Remplace efficacement les groupes électrogènes sans émission polluante.
-                </p>
-                <div class="space-y-4">
-                  <p class="text-[#FF9D35] font-black text-lg">À partir de 500 000 FCFA</p>
-                  <button @click="navigateTo('/produits/armoire-billy')" class="w-full bg-[#0392C7] hover:bg-[#016E98] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 cursor-pointer">
-                    Détail
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div v-if="loading" class="text-center py-12">
+          <p class="text-gray-600 text-lg">Chargement des produits...</p>
+        </div>
+
+        <div v-else-if="error" class="text-center py-12">
+          <p class="text-red-600 text-lg">Erreur: {{ error }}</p>
+          <p class="text-gray-600 mt-2">Les produits seront affichés ci-dessous une fois Firebase configuré</p>
+        </div>
+
+        <!-- Produits Firebase -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 items-end">
+          <!-- Message débogage -->
+          <div v-if="products.length === 0" class="col-span-full bg-yellow-50 p-6 rounded-lg border-2 border-yellow-300">
+            <p class="font-bold text-yellow-800">📊 Statut:</p>
+            <p class="text-yellow-700 text-sm">Chargement: {{ loading }} | Erreur: {{ error ? error : 'Aucune' }}</p>
+            <p class="text-yellow-700 text-sm">Produits trouvés: {{ products.length }}</p>
+            <!-- <p class="text-yellow-600 text-xs mt-2">Vérifiez que:</p>
+            <ul class="text-yellow-600 text-xs list-disc ml-4">
+              <li>Vous avez cliqué sur "Importer Tout" à /admin/import</li>
+              <li>Les règles Firebase sont en mode TEST (allow read, write)</li>
+              <li>Vous avez ajouté au moins un produit en admin</li>
+            </ul> -->
           </div>
 
-          <!-- Product 2: Lampadaires EGENT Solar -->
-          <div class="flex flex-col-reverse h-full md:-mt-12 animate-fadeInUp animation-delay-500">
-            <div class="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow group">
+          <div v-for="(product, index) in products" :key="product.id" class="flex flex-col h-full animate-fadeInUp" :style="{ animationDelay: (0.1 * index) + 's' }">
+            <div class="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group h-full flex flex-col">
+              <!-- Image -->
               <img 
-                src="/src/assets/images/lampendaire_monté.jpg" 
-                alt="Lampadaires EGENT Solar"
+                :src="product.mainImage || product.image || '/vite.svg'" 
+                :alt="product.name || product.title"
                 class="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300"
+                @error="(e) => e.target.src = '/vite.svg'"
               />
-              <div class="bg-white p-6">
-                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Lampadaires EGENT SOLAR</h3>
-                <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                  Lampadaires solaires autonomes et écologiques pour illuminer vos routes, places publiques et espaces extérieurs sans frais d'électricité.
+              
+              <!-- Content -->
+              <div class="bg-white p-6 flex flex-col flex-grow">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="text-2xl font-black text-[#0392C7]">{{ product.name || product.title }}</h3>
+                  <span v-if="product.featured" class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold">⭐ Phare</span>
+                </div>
+                
+                <p class="text-gray-700 text-sm leading-relaxed mb-4 flex-grow">
+                  {{ product.shortDescription || product.description }}
                 </p>
-                <div class="space-y-4">
-                  <p class="text-[#FF9D35] font-black text-lg">À partir de 200 000 FCFA</p>
-                  <button @click="navigateTo('/produits/lampadaires-egent-solar')" class="w-full bg-[#0392C7] hover:bg-[#016E98] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 cursor-pointer">
+                
+                <div class="space-y-4 mt-auto">
+                  <p class="text-[#FF9D35] font-black text-lg">{{ product.price }}</p>
+                  <button @click="navigateTo('/produits/' + (product.slug || product.id))" class="w-full bg-[#0392C7] hover:bg-[#016E98] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 cursor-pointer">
                     Détail
                   </button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Product 3: Kit Zoklin -->
-          <div class="flex flex-col h-full animate-fadeInUp animation-delay-600">
-            <div class="relative bg-orange-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group">
-              <img 
-                src="/src/assets/images/montage_panneau2.jpg" 
-                alt="Kit Zoklin"
-                class="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div class="bg-white p-6">
-                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Kit Zoklin</h3>
-                <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                  Kit solaire préconçu et complet pour une installation rapide et facile. Parfait pour débuter votre transition énergétique en toute confiance.
-                </p>
-                <div class="space-y-4">
-                  <p class="text-[#FF9D35] font-black text-lg">À partir de 750 000 FCFA</p>
-                  <button @click="navigateTo('/produits/kit-zoklin')" class="w-full bg-[#0392C7] hover:bg-[#016E98] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 cursor-pointer">
-                    Détail
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product 4: Free Water -->
-          <div class="flex flex-col h-full animate-fadeInUp animation-delay-700">
-            <div class="relative bg-blue-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group">
-              <img 
-                src="/src/assets/images/freewater.jpeg" 
-                alt="Free Water"
-                class="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div class="bg-white p-6">
-                <h3 class="text-2xl font-black text-[#0392C7] mb-2">Free Water</h3>
-                <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                  Solution innovante de purification d'eau solaire autonome et écologique. Fournit de l'eau potable sans coût énergétique pour vos communautés.
-                </p>
-                <div class="space-y-4">
-                  <p class="text-[#FF9D35] font-black text-lg">À partir de 350 000 FCFA</p>
-                  <button @click="navigateTo('/produits/free-water')" class="w-full bg-[#0392C7] hover:bg-[#016E98] text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300 cursor-pointer">
-                    Détail
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Produits par défaut si Firebase vide -->
+        <div v-if="!loading && !error && products.length === 0" class="bg-blue-50 rounded-3xl p-8 mb-16 text-center">
+          <p class="text-gray-600 text-lg">Aucun produit disponible pour le moment.</p>
+          <p class="text-gray-500 mt-2">Les produits créés dans l'admin apparaîtront ici en temps réel</p>
         </div>
 
         <!-- CTA Button -->
@@ -335,10 +303,13 @@ import { useRouter } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useCursorFollowText } from '../composables/useCursorFollowText'
 import { useSEOMeta } from '../composables/useSEOMeta'
+import { useFirebaseData } from '../composables/useFirebaseData'
 
 const router = useRouter()
 const { setMeta } = useSEOMeta()
+const { products, loading, error, initializeProducts } = useFirebaseData()
 useCursorFollowText()
+
 const produitsPhares = ref(null)
 const heroInView = ref(false)
 const produitInView = ref(false)
@@ -374,6 +345,7 @@ const setupObserver = () => {
 
 onMounted(() => {
   setupObserver()
+  initializeProducts()
   
   // Définir les métadonnées Open Graph pour la page Produits
   setMeta(

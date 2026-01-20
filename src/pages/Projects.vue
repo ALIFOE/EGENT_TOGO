@@ -53,7 +53,7 @@
           <div class="relative h-80 md:h-[450px] lg:h-[500px] animate-fadeInUp animation-delay-400">
             <div class="relative h-full rounded-3xl overflow-hidden shadow-2xl group animate-fadeInUp animation-delay-500">
               <img 
-                src="/src/assets/images/panneau_montés.jpg" 
+                src="/EGENT_TOGO/images/panneau_montés.jpg" 
                 alt="Nos projets"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -162,11 +162,80 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSEOMeta } from '../composables/useSEOMeta'
-import { projects } from '../data/projects.js'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../lib/firebase'
 
 const router = useRouter()
 const { setMeta } = useSEOMeta()
 const projectsSection = ref(null)
+const projects = ref([])
+
+const loadProjects = async () => {
+  try {
+    const querySnapshot = await getDocs(collection(db, 'projects'))
+    
+    // Si aucun projet en base, importer les projets statiques
+    if (querySnapshot.empty) {
+      console.log('Aucun projet trouvé, importation automatique...')
+      await importStaticProjects()
+      // Recharger après import
+      const newSnapshot = await getDocs(collection(db, 'projects'))
+      projects.value = newSnapshot.docs.map(mapProjectDoc)
+    } else {
+      projects.value = querySnapshot.docs.map(mapProjectDoc)
+    }
+  } catch (error) {
+    console.error('Erreur chargement projets:', error)
+    projects.value = []
+  }
+}
+
+const mapProjectDoc = (doc) => {
+  let data = doc.data()
+  
+  // Corriger les anciennes URLs d'images
+  if (data.mainImage && data.mainImage.includes('/src/assets/images/')) {
+    const filename = data.mainImage.split('/').pop()
+    data.mainImage = `/EGENT_TOGO/images/${filename}`
+  }
+  
+  if (data.images && Array.isArray(data.images)) {
+    data.images = data.images.map(img => {
+      if (img && img.includes('/src/assets/images/')) {
+        const filename = img.split('/').pop()
+        return `/EGENT_TOGO/images/${filename}`
+      }
+      return img
+    })
+  }
+  
+  return {
+    ...data,
+    id: doc.id  // L'ID Firestore écrase le data.id statique
+  }
+}
+
+const importStaticProjects = async () => {
+  try {
+    const { projects: staticProjects } = await import('../data/projects.js')
+    const { addDoc, serverTimestamp } = await import('firebase/firestore')
+    
+    for (const project of staticProjects) {
+      try {
+        await addDoc(collection(db, 'projects'), {
+          ...project,
+          createdAt: new Date(),
+          importedAt: new Date(),
+          isImported: true
+        })
+      } catch (err) {
+        console.error(`Erreur import ${project.slug}:`, err)
+      }
+    }
+  } catch (error) {
+    console.error('Erreur import statique:', error)
+  }
+}
 
 const scrollToProjects = () => {
   if (projectsSection.value) {
@@ -178,15 +247,19 @@ const navigateToProject = (slug) => {
   router.push(`/projets/${slug}`)
 }
 
-onMounted(() => {
+onMounted(async () => {
+  // Charger les projets depuis Firebase
+  await loadProjects()
+  
   // Définir les métadonnées Open Graph pour la page Projets
   setMeta(
     'Projets - EGENT-TOGO',
     'Explorez nos projets innovants en énergie solaire et solutions durables pour le Togo et l\'Afrique.',
-    '/src/assets/images/panneau_montés.jpg',
+    projects.value.length > 0 ? projects.value[0].mainImage : '/EGENT_TOGO/images/panneau_montés.jpg',
     '/projets'
   )
 })
+
 const navigateTo = (path) => {
   router.push(path)
 }

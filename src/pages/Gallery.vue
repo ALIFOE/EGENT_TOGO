@@ -49,35 +49,45 @@
 
         <!-- Gallery Grid with Animation -->
         <div id="gallery-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Loading State -->
+          <div v-if="loading" class="col-span-full flex justify-center items-center py-20">
+            <div class="text-lg text-gray-600">Chargement de la galerie...</div>
+          </div>
+
+          <!-- Error State -->
+          <div v-else-if="error" class="col-span-full bg-red-50 border border-red-200 rounded-lg p-4">
+            <p class="text-red-800">Erreur lors du chargement de la galerie : {{ error }}</p>
+          </div>
+
+          <!-- Empty State -->
+          <div v-else-if="filteredGallery.length === 0" class="col-span-full text-center py-20">
+            <p class="text-lg text-gray-600">Aucune image disponible dans cette catégorie.</p>
+          </div>
+
+          <!-- Gallery Images (Dynamic) -->
           <div 
             v-for="(image, index) in filteredGallery" 
-            :key="index"
+            v-else
+            :key="image.id"
             @click="openLightbox(index)"
             class="gallery-item group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 h-72 cursor-pointer transform hover:scale-105 animate-fadeInUp"
             :style="{ animationDelay: (0.08 * (index % 3)) + 's' }"
           >
             <!-- Image -->
             <img 
-              :src="image.src" 
-              :alt="image.title"
-              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              :src="image.image"
+              :alt="image.title || 'Galerie image'"
+              class="w-full h-full object-cover group-hover:brightness-50 transition-all duration-500"
+              @error="(e) => e.target.src = '@/assets/images/montage_panneau2.jpg'"
             />
-            
-            <!-- Dark Overlay - très léger -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-30 group-hover:opacity-40 transition-all duration-300"></div>
-            
-            <!-- Text Overlay at Bottom -->
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent px-6 py-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-              <h3 class="text-lg font-black text-white mb-1">{{ image.title }}</h3>
-              <p class="text-[#EE6D08]   text-xs font-bold uppercase tracking-widest">{{ image.category }}</p>
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+              <div>
+                <h3 class="text-white font-bold text-lg mb-1">{{ image.title }}</h3>
+                <p class="text-orange-400 text-sm font-semibold">{{ image.category }}</p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- No Results -->
-        <div v-if="filteredGallery.length === 0" class="text-center py-16">
-          <i class="fas fa-image text-gray-300 text-6xl mb-4"></i>
-          <p class="text-gray-600 text-lg">Aucune image dans cette catégorie</p>
         </div>
       </div>
     </section>
@@ -100,7 +110,7 @@
             <div class="flex flex-col items-center justify-center flex-1">
               <!-- Main Image -->
               <img 
-                :src="currentLightboxImage.src" 
+                :src="currentLightboxImage.image" 
                 :alt="currentLightboxImage.title"
                 class="max-w-full max-h-[70vh] object-contain rounded-2xl"
               />
@@ -246,122 +256,35 @@
 </template>
 
 <script setup>
-import { useCursorFollowText } from '../composables/useCursorFollowText'
-import { useSEOMeta } from '../composables/useSEOMeta'
-
-useCursorFollowText()
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useSEOMeta } from '../composables/useSEOMeta'
+import { useFirebaseData } from '../composables/useFirebaseData'
 
 const { setMeta } = useSEOMeta()
+const { gallery, loading, initializeGallery } = useFirebaseData()
 
-// Animation refs
-const heroTitleInView = ref(false)
-const filterButtonsInView = ref(false)
-const galleryItemsInView = ref(false)
-const statsInView = ref(false)
-const ctaInView = ref(false)
+onMounted(() => {
+  initializeGallery()
+})
 
 const selectedCategory = ref('Tous')
 const isLightboxOpen = ref(false)
 const currentLightboxIndex = ref(0)
 
-const categories = [
-  'Tous',
-  'Installation Solaire',
-  'Lampadaires LED',
-  'Panneaux Solaires',
-  'Pompage Solaire',
-  'Formation'
-]
-
-const galleryImages = [
-  {
-    title: 'Panneau solaire installation',
-    category: 'Installation Solaire',
-    src: new URL('@/assets/images/montage_panneau.jpg', import.meta.url).href
-  },
-  {
-    title: 'Montage panneau photovoltaïque',
-    category: 'Installation Solaire',
-    src: new URL('@/assets/images/montage_panneau2.jpg', import.meta.url).href
-  },
-  {
-    title: 'Lampadaires LED montés',
-    category: 'Lampadaires LED',
-    src: new URL('@/assets/images/lampandaire_monté3.jpg', import.meta.url).href
-  },
-  {
-    title: 'Installation lampadaire LED',
-    category: 'Lampadaires LED',
-    src: new URL('@/assets/images/lampandaire_monté2.jpg', import.meta.url).href
-  },
-  {
-    title: 'Lampadaire LED mise en place',
-    category: 'Lampadaires LED',
-    src: new URL('@/assets/images/lampandaire_monté3.jpg', import.meta.url).href
-  },
-  {
-    title: 'Panneaux photovoltaïques',
-    category: 'Panneaux Solaires',
-    src: new URL('@/assets/images/panneau4.jpg', import.meta.url).href
-  },
-  {
-    title: 'Installation panneaux montés',
-    category: 'Panneaux Solaires',
-    src: new URL('@/assets/images/panneau_montés.jpg', import.meta.url).href
-  },
-  {
-    title: 'Projet chantier',
-    category: 'Installation Solaire',
-    src: new URL('@/assets/images/photo_chantier.jpg', import.meta.url).href
-  },
-  {
-    title: 'Chantier en cours',
-    category: 'Installation Solaire',
-    src: new URL('@/assets/images/photo_chantier2.jpg', import.meta.url).href
-  },
-  {
-    title: 'Réalisation projet 1',
-    category: 'Pompage Solaire',
-    src: new URL('@/assets/images/6862757d3ce79-1.jpg', import.meta.url).href
-  },
-  {
-    title: 'Réalisation projet 2',
-    category: 'Pompage Solaire',
-    src: new URL('@/assets/images/6862757d416a4-2.jpg', import.meta.url).href
-  },
-  {
-    title: 'Réalisation projet 3',
-    category: 'Pompage Solaire',
-    src: new URL('@/assets/images/6862757d5659b-3.jpg', import.meta.url).href
-  },
-  {
-    title: 'Boutique EGENT-TOGO',
-    category: 'Panneaux Solaires',
-    src: new URL('@/assets/images/boutique_egent.jpg', import.meta.url).href
-  },
-  {
-    title: 'Réception EGENT',
-    category: 'Formation',
-    src: new URL('@/assets/images/egent_reception.jpg', import.meta.url).href
-  },
-  {
-    title: 'Photo client',
-    category: 'Installation Solaire',
-    src: new URL('@/assets/images/photoclient1.jpg', import.meta.url).href
-  },
-  {
-    title: 'Conférence EGENT',
-    category: 'Formation',
-    src: new URL('@/assets/images/phpto_conf.jpg', import.meta.url).href
-  }
-]
+const categories = computed(() => {
+  const allCategories = new Set()
+  allCategories.add('Tous')
+  gallery.value.forEach(item => {
+    if (item.category) allCategories.add(item.category)
+  })
+  return Array.from(allCategories)
+})
 
 const filteredGallery = computed(() => {
   if (selectedCategory.value === 'Tous') {
-    return galleryImages
+    return gallery.value
   }
-  return galleryImages.filter(image => image.category === selectedCategory.value)
+  return gallery.value.filter(image => image.category === selectedCategory.value)
 })
 
 const currentLightboxImage = computed(() => {
@@ -403,48 +326,13 @@ const handleKeypress = (event) => {
   }
 }
 
-// Setup Intersection Observer
-const setupObserver = () => {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        if (entry.target.id === 'hero-title') heroTitleInView.value = true
-        if (entry.target.id === 'filter-buttons') filterButtonsInView.value = true
-        if (entry.target.id === 'gallery-items') galleryItemsInView.value = true
-        if (entry.target.id === 'stats-section') statsInView.value = true
-        if (entry.target.id === 'cta-section') ctaInView.value = true
-      }
-    });
-  }, observerOptions)
-
-  const elements = [
-    'hero-title',
-    'filter-buttons',
-    'gallery-items',
-    'stats-section',
-    'cta-section'
-  ]
-  
-  elements.forEach((id) => {
-    const el = document.getElementById(id)
-    if (el) observer.observe(el)
-  })
-}
-
 onMounted(() => {
-  setupObserver()
   window.addEventListener('keydown', handleKeypress)
   
-  // Définir les métadonnées Open Graph pour la page Galerie
   setMeta(
-    'Galerie - Nos Réalisations',
+    'Galerie - Nos Réalisations - EGENT-TOGO',
     'Découvrez nos réalisations en énergie solaire, lampadaires LED et solutions durables au Togo.',
-    '/src/assets/images/photo_chantier.jpg',
+    'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop',
     '/galerie'
   )
 })
