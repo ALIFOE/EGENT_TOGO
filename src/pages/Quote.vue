@@ -952,7 +952,7 @@ onMounted(() => {
   setMeta(
     'Devis - EGENT-TOGO',
     'Demandez un devis personnalisé pour vos projets énergétiques. Réponse rapide et professionnelle d\'EGENT-TOGO.',
-    '/src/assets/images/logo_marque.png',
+    '/src/assets/images/panneau4.jpg',
     '/devis'
   )
 })
@@ -1187,7 +1187,7 @@ const submitQuoteToFirebase = async () => {
   } catch (error) {
     console.error('Erreur envoi devis:', error)
     submitSuccess.value = false
-    submitMessage.value = '❌ Erreur lors de l\'envoi. Veuillez réessayer.'
+    submitMessage.value = ' l\'envoi en cour, Veuillez réessayer.'
   } finally {
     isSubmitting.value = false
   }

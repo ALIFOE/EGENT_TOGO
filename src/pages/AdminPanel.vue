@@ -1,11 +1,12 @@
 <template>
-  <div class="admin-layout flex h-screen bg-gray-100">
+  <div class="admin-layout flex h-screen bg-gray-50">
     <!-- Sidebar Navigation -->
-    <aside class="admin-sidebar w-64 bg-blue-800 text-white shadow-lg flex flex-col">
+    <aside class="admin-sidebar w-64 bg-[#016E98] text-white shadow-lg flex flex-col">
       <!-- Logo/Header -->
-      <div class="p-6 border-b border-blue-700">
+      <div class="p-6 border-b border-[#014d6a]">
+        <img src="@/assets/images/logo.png" alt="EGENT TOGO" class="h-10 w-auto mb-3">
         <h2 class="text-2xl font-black">EGENT ADMIN</h2>
-        <p class="text-blue-200 text-sm mt-1">Tableau de bord</p>
+        <p class="text-blue-100 text-sm mt-1">Tableau de bord</p>
       </div>
 
       <!-- Navigation Menu -->
@@ -15,24 +16,24 @@
           :class="[
             'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
             currentSection === 'dashboard'
-              ? 'bg-orange-500 text-white font-bold'
-              : 'hover:bg-blue-700 text-blue-100'
+              ? 'bg-[#EE6D08] text-white font-bold'
+              : 'hover:bg-[#014d6a] text-blue-100'
           ]"
         >
           <i class="fas fa-chart-bar"></i>
           Tableau de bord
         </button>
 
-        <div class="pt-4 border-t border-blue-700">
-          <p class="px-4 text-blue-300 text-xs font-bold uppercase tracking-wider mb-2">Gestion</p>
+        <div class="pt-4 border-t border-[#014d6a]">
+          <p class="px-4 text-blue-200 text-xs font-bold uppercase tracking-wider mb-2">Gestion</p>
           
           <button
             @click="currentSection = 'products'"
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'products'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-box"></i>
@@ -45,8 +46,8 @@
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'articles'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-newspaper"></i>
@@ -59,8 +60,8 @@
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'projects'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-building"></i>
@@ -73,8 +74,8 @@
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'gallery'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-images"></i>
@@ -87,8 +88,8 @@
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'forms'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-envelope"></i>
@@ -101,8 +102,8 @@
             :class="[
               'w-full text-left px-4 py-3 rounded-lg transition-all duration-200 flex items-center gap-3',
               currentSection === 'quotes'
-                ? 'bg-orange-500 text-white font-bold'
-                : 'hover:bg-blue-700 text-blue-100'
+                ? 'bg-[#EE6D08] text-white font-bold'
+                : 'hover:bg-[#014d6a] text-blue-100'
             ]"
           >
             <i class="fas fa-file-invoice-dollar"></i>
@@ -113,7 +114,7 @@
       </nav>
 
       <!-- Logout Button -->
-      <div class="p-4 border-t border-blue-700">
+      <div class="p-4 border-t border-[#014d6a]">
         <button
           @click="logout"
           class="w-full px-4 py-3 bg-red-500 hover:bg-red-600 rounded-lg transition-colors flex items-center justify-center gap-2 font-bold"
@@ -127,9 +128,10 @@
     <!-- Main Content -->
     <main class="flex-1 flex flex-col overflow-hidden">
       <!-- Top Header -->
-      <header class="bg-white border-b border-gray-200 px-8 py-4 shadow-sm flex items-center justify-between">
-        <div>
-          <h1 class="text-3xl font-black text-blue-800">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 shadow-md flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <img src="@/assets/images/logo.png" alt="EGENT TOGO" class="h-8 w-auto">
+          <h1 class="text-3xl font-black text-[#016E98]">
             <i v-if="currentSection === 'dashboard'" class="fas fa-chart-bar mr-2"></i>
             <i v-if="currentSection === 'products'" class="fas fa-box mr-2"></i>
             <i v-if="currentSection === 'articles'" class="fas fa-newspaper mr-2"></i>
@@ -153,68 +155,68 @@
         <div v-if="currentSection === 'dashboard'" class="space-y-8">
           <!-- Stats Cards -->
           <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-orange-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#EE6D08]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Produits</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ products.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ products.length }}</p>
                 </div>
-                <i class="fas fa-box text-orange-500 text-4xl opacity-20"></i>
+                <i class="fas fa-box text-[#EE6D08] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Total des produits en base</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#016E98]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Articles</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ articles.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ articles.length }}</p>
                 </div>
-                <i class="fas fa-newspaper text-blue-500 text-4xl opacity-20"></i>
+                <i class="fas fa-newspaper text-[#016E98] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Total des articles publiés</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-green-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#2F7914]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Photos</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ gallery.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ gallery.length }}</p>
                 </div>
-                <i class="fas fa-images text-green-500 text-4xl opacity-20"></i>
+                <i class="fas fa-images text-[#2F7914] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Galerie photos</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-cyan-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#EE6D08]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Projets</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ projects.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ projects.length }}</p>
                 </div>
-                <i class="fas fa-building text-cyan-500 text-4xl opacity-20"></i>
+                <i class="fas fa-building text-[#EE6D08] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Projets en base</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#EE6D08]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Formulaires</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ contactForms.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ contactForms.length }}</p>
                 </div>
-                <i class="fas fa-envelope text-red-500 text-4xl opacity-20"></i>
+                <i class="fas fa-envelope text-[#EE6D08] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Messages de contact</p>
             </div>
 
-            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-purple-500">
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-[#2F7914]">
               <div class="flex items-center justify-between">
                 <div>
                   <p class="text-gray-600 text-sm font-semibold uppercase tracking-wide">Devis</p>
-                  <p class="text-4xl font-black text-blue-800 mt-2">{{ quotes.length }}</p>
+                  <p class="text-4xl font-black text-[#016E98] mt-2">{{ quotes.length }}</p>
                 </div>
-                <i class="fas fa-file-invoice-dollar text-purple-500 text-4xl opacity-20"></i>
+                <i class="fas fa-file-invoice-dollar text-[#2F7914] text-4xl opacity-20"></i>
               </div>
               <p class="text-gray-500 text-xs mt-4">Demandes de devis</p>
             </div>
@@ -224,8 +226,8 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Produits Récents -->
             <div class="bg-white rounded-lg shadow p-6">
-              <h3 class="text-xl font-black text-blue-800 mb-4 flex items-center gap-2">
-                <i class="fas fa-box text-orange-500"></i>
+              <h3 class="text-xl font-black text-[#016E98] mb-4 flex items-center gap-2">
+                <i class="fas fa-box text-[#EE6D08]"></i>
                 Produits Récents
               </h3>
               <div class="space-y-3 max-h-96 overflow-y-auto">
@@ -241,15 +243,15 @@
                     <p class="font-bold text-gray-800">{{ product.name }}</p>
                     <p class="text-xs text-gray-600">{{ product.price }}</p>
                   </div>
-                  <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1 rounded-full">{{ product.category }}</span>
+                  <span class="text-xs bg-[#EE6D08] text-white px-3 py-1 rounded-full">{{ product.category }}</span>
                 </div>
               </div>
             </div>
 
             <!-- Articles Récents -->
             <div class="bg-white rounded-lg shadow p-6">
-              <h3 class="text-xl font-black text-blue-800 mb-4 flex items-center gap-2">
-                <i class="fas fa-newspaper text-blue-500"></i>
+              <h3 class="text-xl font-black text-[#016E98] mb-4 flex items-center gap-2">
+                <i class="fas fa-newspaper text-[#016E98]"></i>
                 Articles Récents
               </h3>
               <div class="space-y-3 max-h-96 overflow-y-auto">
@@ -265,7 +267,7 @@
                     <p class="font-bold text-gray-800">{{ article.title }}</p>
                     <p class="text-xs text-gray-600">{{ article.date }}</p>
                   </div>
-                  <span class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full">{{ article.category }}</span>
+                  <span class="text-xs bg-[#016E98] text-white px-3 py-1 rounded-full">{{ article.category }}</span>
                 </div>
               </div>
             </div>
@@ -282,7 +284,7 @@
           <div class="flex flex-wrap gap-3 mb-6">
             <router-link
               to="/admin/import-products"
-              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition inline-block"
+              class="bg-[#2F7914] hover:bg-[#1f5810] text-white font-semibold py-2 px-6 rounded-lg transition inline-block shadow-md hover:shadow-lg"
             >
               📥 Importer les 4 produits
             </router-link>
