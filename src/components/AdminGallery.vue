@@ -194,7 +194,7 @@
       <div v-for="image in gallery" :key="image.id" class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
         <!-- Image -->
         <div class="relative overflow-hidden h-48 bg-gray-200">
-          <img :src="image.image" :alt="image.title" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" @error="(e) => e.target.src = '/images/montage_panneau2.jpg'" />
+          <img :src="image.image" :alt="image.title" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" @error="(e) => e.target.src = '/EGENT_TOGO/images/montage_panneau2.jpg'" />
         </div>
 
         <!-- Info -->

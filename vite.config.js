@@ -34,7 +34,7 @@ const injectPrerenderServerPlugin = {
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/EGENT_TOGO/',
   plugins: [vue(), copy404Plugin, injectPrerenderServerPlugin],
   resolve: {
     alias: {

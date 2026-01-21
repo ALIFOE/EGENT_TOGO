@@ -1,9 +1,9 @@
-// Utiliser les chemins publics avec la base URL pour les images
-const panneau_montés = '/images/panneau_montés.jpg'
-const montage_panneau = '/images/montage_panneau.jpg'
-const montage_panneau2 = '/images/montage_panneau2.jpg'
-const chauffage_egent = '/images/chauffage_egent.jpg'
-const photo_chantier = '/images/photo_chantier.jpg'
+// Utiliser les chemins publics avec la base URL pour les images (GitHub Pages: /EGENT_TOGO/)
+const panneau_montés = '/EGENT_TOGO/images/panneau_montés.jpg'
+const montage_panneau = '/EGENT_TOGO/images/montage_panneau.jpg'
+const montage_panneau2 = '/EGENT_TOGO/images/montage_panneau2.jpg'
+const chauffage_egent = '/EGENT_TOGO/images/chauffage_egent.jpg'
+const photo_chantier = '/EGENT_TOGO/images/photo_chantier.jpg'
 
 export const projects = [
   {
