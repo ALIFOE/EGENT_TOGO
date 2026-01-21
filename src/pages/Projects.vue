@@ -109,7 +109,7 @@
                 <span class="inline-block px-3 py-1 bg-[#FF9D35] text-white text-xs font-bold rounded-full">{{ project.category }}</span>
               </div>
               <div class="w-full">
-                <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight mb-2">{{ project.title }}</h3>
+                <router-link :to="'/projets/' + project.slug" class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight mb-2 hover:text-[#EE6D08] transition-colors block">{{ project.title }}</router-link>
                 <p class="text-white/80 text-sm">{{ project.location }}</p>
               </div>
             </div>
@@ -160,7 +160,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, RouterLink } from 'vue-router'
 import { useSEOMeta } from '../composables/useSEOMeta'
 import { collection, getDocs } from 'firebase/firestore'
 

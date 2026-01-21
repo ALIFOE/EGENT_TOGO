@@ -152,7 +152,7 @@
               <!-- Content -->
               <div class="bg-white p-6 flex flex-col flex-grow">
                 <div class="flex items-start justify-between mb-2">
-                  <h3 class="text-2xl font-black text-[#0392C7]">{{ product.name || product.title }}</h3>
+                  <router-link :to="'/produits/' + (product.slug || product.id)" class="text-2xl font-black text-[#0392C7] hover:text-[#EE6D08] transition-colors block">{{ product.name || product.title }}</router-link>
                   <span v-if="product.featured" class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold">⭐ Phare</span>
                 </div>
                 
@@ -299,7 +299,7 @@
 </style>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter, RouterLink } from 'vue-router'
 import { ref, onMounted } from 'vue'
 import { useCursorFollowText } from '../composables/useCursorFollowText'
 import { useSEOMeta } from '../composables/useSEOMeta'

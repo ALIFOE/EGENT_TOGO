@@ -187,11 +187,11 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div 
+          <router-link 
             v-for="(relatedProduct, index) in relatedProducts" 
             :key="relatedProduct.id"
-            @click="navigateToProduct(relatedProduct.slug)"
-            :class="['bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-105 duration-300', 'animate-fadeInUp', `animation-delay-${400 + index * 100}`]"
+            :to="'/produits/' + relatedProduct.slug"
+            :class="['bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:scale-105 duration-300', 'animate-fadeInUp', `animation-delay-${400 + index * 100}`]"
           >
             <img 
               :src="relatedProduct.mainImage" 
@@ -199,11 +199,11 @@
               class="w-full h-48 object-cover"
             />
             <div class="p-6">
-              <h3 class="text-xl font-black text-[#0392C7] mb-2">{{ relatedProduct.name }}</h3>
+              <h3 class="text-xl font-black text-[#0392C7] mb-2 hover:text-[#EE6D08] transition-colors">{{ relatedProduct.name }}</h3>
               <p class="text-gray-600 text-sm mb-4 line-clamp-2">{{ relatedProduct.shortDescription }}</p>
               <p class="text-[#FF9D35] font-black text-lg">{{ relatedProduct.price }}</p>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </section>

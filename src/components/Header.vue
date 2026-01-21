@@ -52,7 +52,7 @@
             class="px-3 py-1.5 rounded-lg font-bold text-xs transition-all duration-300"
             :class="isActive('/galerie') ? 'text-[#EE6D08]' : 'text-[#016E98] hover:text-[#EE6D08]'"
           >
-            NOS RÉALISATIONS
+            GALLERIE
           </RouterLink>
           <RouterLink 
             to="/contact" 
@@ -163,7 +163,7 @@
               :class="isActive('/galerie') ? 'text-[#EE6D08]' : 'text-[#016E98] hover:text-[#EE6D08]'"
               @click="mobileMenuOpen = false"
             >
-              NOS RÉALISATIONS
+              GALLERIE
             </RouterLink>
             <RouterLink 
               to="/contact" 

@@ -12,12 +12,12 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-start justify-center">
         <div class="flex items-start justify-center w-full">
           <!-- Content -->
-          <div class="z-10 max-w-4xl text-center pt-16 md:pt-32 px-2 sm:px-4">
+          <div class="z-10 max-w-4xl text-center pt-16 md:pt-40 px-2 sm:px-4">
             <h1 class="text-4xl md:text-5xl lg:text-5xl font-black leading-tight drop-shadow-lg animate-fadeInUp translate-y-6">
               <span class="text-white">Écrivons l'Avenir de </span>
-              <span class="text-[#FF9D35]">l'Énergie</span>
+              <span class="text-white">l'Énergie</span>
               <br />
-              <span class="text-[#016E98]">au Togo et en Afrique.</span>
+              <span class="text-white">au Togo et en Afrique.</span>
             </h1>
             <!-- <p class="text-white text-lg mb-8 opacity-100 animate-fadeInUp animation-delay-200">
               Rejoignez-nous pour bâtir des solutions durables et innovantes, adaptées aux besoins énergétiques de demain au Togo et en Afrique.

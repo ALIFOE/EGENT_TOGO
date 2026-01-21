@@ -53,7 +53,7 @@
             @error="onVideoError"
             @loadstart="onLoadStart"
           >
-            <source src="/src/assets/videos/videoauto.mp4" type="video/mp4" />
+            <source src="/src/assets/videos/Spotconf.mp4" type="video/mp4" />
           </video>
           
           <!-- Image de fallback (affichée si vidéo vide) -->
@@ -262,7 +262,7 @@
 
             <!-- Content -->
             <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-[#016E98] mb-3 line-clamp-2">{{ article.title }}</h3>
+              <router-link :to="'/article/' + article.slug" class="text-xl font-bold text-[#016E98] mb-3 line-clamp-2 hover:text-[#EE6D08] transition-colors block">{{ article.title }}</router-link>
               <p class="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-2">{{ article.excerpt }}</p>
               <div class="flex justify-between items-center mt-auto">
                 <span class="text-gray-500 text-xs">{{ article.date }}</span>
@@ -310,7 +310,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, RouterLink } from 'vue-router'
 import { useSEOMeta } from '../composables/useSEOMeta'
 import { useFirebaseData } from '../composables/useFirebaseData'
 
