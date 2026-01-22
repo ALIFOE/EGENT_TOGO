@@ -207,7 +207,8 @@
                 />
               </div>
 
-              <div class="animate-fadeInUp animation-delay-800">
+              <!-- Société et Fonction - Uniquement pour CONSULTING -->
+              <div v-if="selectedService === 'consulting'" class="animate-fadeInUp animation-delay-800">
                 <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Société</label>
                 <input 
                   v-model="form.company"
@@ -217,7 +218,7 @@
                 />
               </div>
 
-              <div class="animate-fadeInUp animation-delay-900">
+              <div v-if="selectedService === 'consulting'" class="animate-fadeInUp animation-delay-900">
                 <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Fonction</label>
                 <input 
                   v-model="form.position"
@@ -272,28 +273,6 @@
             <div v-if="selectedService === 'energie-solaire'" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="animate-fadeInUp animation-delay-400">
-                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Consommation annuelle (kWh) *</label>
-                  <input 
-                    v-model="form.solarConsumption"
-                    type="number" 
-                    placeholder="5000"
-                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
-                    required
-                  />
-                </div>
-
-                <div class="animate-fadeInUp animation-delay-500">
-                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Surface toiture disponible (m²) *</label>
-                  <input 
-                    v-model="form.roofArea"
-                    type="number" 
-                    placeholder="50"
-                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
-                    required
-                  />
-                </div>
-
-                <div class="animate-fadeInUp animation-delay-600">
                   <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Type de bâtiment *</label>
                   <select 
                     v-model="form.buildingType"
@@ -307,7 +286,38 @@
                   </select>
                 </div>
 
+                <div class="animate-fadeInUp animation-delay-500">
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Consommation d'énergie (kWh/mois)</label>
+                  <input 
+                    v-model="form.energyConsumption"
+                    type="number" 
+                    placeholder="500"
+                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
+                  />
+                </div>
+
+                <div class="animate-fadeInUp animation-delay-600">
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Surface toiture disponible (m²)</label>
+                  <input 
+                    v-model="form.roofArea"
+                    type="number" 
+                    placeholder="50"
+                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
+                  />
+                </div>
+
                 <div class="animate-fadeInUp animation-delay-700">
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Électroménagers * (puissance et nombre de climatiseurs)</label>
+                  <input 
+                    v-model="form.appliances"
+                    type="text" 
+                    placeholder="Ex: 2 climatiseurs 1.5kW, 1 réfrigérateur 0.5kW"
+                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
+                    required
+                  />
+                </div>
+
+                <div class="animate-fadeInUp animation-delay-800">
                   <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Budget estimé (FCFA)</label>
                   <input 
                     v-model="form.budget"
@@ -371,43 +381,38 @@
             <div v-if="selectedService === 'climatisation'" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="animate-fadeInUp animation-delay-400">
-                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Surface à climatiser (m²) *</label>
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Type de bâtiment *</label>
+                  <select 
+                    v-model="form.buildingType"
+                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
+                    required
+                  >
+                    <option value="">Sélectionnez un type</option>
+                    <option value="residence">Résidence</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="industrial">Industriel</option>
+                  </select>
+                </div>
+
+                <div class="animate-fadeInUp animation-delay-500">
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Électroménagers * (puissance et nombre de climatiseurs)</label>
                   <input 
-                    v-model="form.areaToClimate"
-                    type="number" 
-                    placeholder="100"
+                    v-model="form.appliances"
+                    type="text" 
+                    placeholder="Ex: 2 climatiseurs 1.5kW, 1 climatiseur 2kW"
                     class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
                     required
                   />
                 </div>
 
-                <div class="animate-fadeInUp animation-delay-500">
-                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Type d'espace *</label>
-                  <select 
-                    v-model="form.spaceType"
-                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
-                    required
-                  >
-                    <option value="">Sélectionnez</option>
-                    <option value="residence">Résidence</option>
-                    <option value="bureau">Bureau</option>
-                    <option value="commerce">Commerce</option>
-                    <option value="industrie">Industrie</option>
-                  </select>
-                </div>
-
                 <div class="animate-fadeInUp animation-delay-600">
-                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Type d'installation souhaité *</label>
-                  <select 
-                    v-model="form.climateType"
-                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
-                    required
-                  >
-                    <option value="">Sélectionnez</option>
-                    <option value="split">Split</option>
-                    <option value="cassette">Cassette</option>
-                    <option value="centralisee">Centralisée</option>
-                  </select>
+                  <label class="block text-[#016E98] font-bold text-sm mb-3 uppercase tracking-widest">Surface à climatiser (m²)</label>
+                  <input 
+                    v-model="form.areaToClimate"
+                    type="number" 
+                    placeholder="100"
+                    class="w-full px-6 py-3 bg-gray-50 border-2 border-gray-300 rounded-xl text-[#016E98] placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/10 transition-all duration-300"
+                  />
                 </div>
 
                 <div class="animate-fadeInUp animation-delay-700">
@@ -833,9 +838,10 @@ const form = ref({
   terms: false,
   
   // Solar
-  solarConsumption: '',
+  energyConsumption: '',
   roofArea: '',
   buildingType: '',
+  appliances: '',
   
   // Electricity
   installationType: '',
@@ -877,9 +883,10 @@ const resetService = () => {
   // Reset only service-specific fields but keep general info
   form.value = {
     ...form.value,
-    solarConsumption: '',
+    energyConsumption: '',
     roofArea: '',
     buildingType: '',
+    appliances: '',
     installationType: '',
     power: '',
     distributionPoints: '',
@@ -990,16 +997,12 @@ const validateStep = () => {
   if (currentStep.value === 1) {
     // Service-specific validations
     if (selectedService.value === 'energie-solaire') {
-      if (!form.value.solarConsumption) {
-        errorMessage.value = 'La consommation annuelle est requise'
-        return false
-      }
-      if (!form.value.roofArea) {
-        errorMessage.value = 'La surface de toiture est requise'
-        return false
-      }
       if (!form.value.buildingType) {
         errorMessage.value = 'Le type de bâtiment est requis'
+        return false
+      }
+      if (!form.value.appliances) {
+        errorMessage.value = 'Les électroménagers sont requis'
         return false
       }
     }
@@ -1016,16 +1019,12 @@ const validateStep = () => {
     }
     
     if (selectedService.value === 'climatisation') {
-      if (!form.value.areaToClimate) {
-        errorMessage.value = 'La surface à climatiser est requise'
+      if (!form.value.buildingType) {
+        errorMessage.value = 'Le type de bâtiment est requis'
         return false
       }
-      if (!form.value.spaceType) {
-        errorMessage.value = 'Le type d\'espace est requis'
-        return false
-      }
-      if (!form.value.climateType) {
-        errorMessage.value = 'Le type d\'installation est requis'
+      if (!form.value.appliances) {
+        errorMessage.value = 'Les électroménagers sont requis'
         return false
       }
     }
@@ -1099,26 +1098,30 @@ const submitQuoteToFirebase = async () => {
     isSubmitting.value = true
     submitMessage.value = '⏳ Envoi de votre devis...'
 
-    // Préparer les données du formulaire
+    // Préparer les données du formulaire - structure simplifiée
     const quoteData = {
-      // Informations générales
+      // Champs obligatoires pour les règles
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       email: form.value.email,
       phone: form.value.phone,
-      company: form.value.company,
-      position: form.value.position,
       address: form.value.address,
-      installationAddress: form.value.installationAddress,
       service: selectedService.value,
       serviceName: getSelectedServiceName(),
+      createdAt: serverTimestamp(),
+      
+      // Champs informatifs
+      company: form.value.company,
+      position: form.value.position,
+      installationAddress: form.value.installationAddress,
       message: form.value.message,
       budget: form.value.budget,
       
       // Champs spécifiques au service
-      solarConsumption: form.value.solarConsumption,
+      energyConsumption: form.value.energyConsumption,
       roofArea: form.value.roofArea,
       buildingType: form.value.buildingType,
+      appliances: form.value.appliances,
       installationType: form.value.installationType,
       power: form.value.power,
       distributionPoints: form.value.distributionPoints,
@@ -1137,7 +1140,6 @@ const submitQuoteToFirebase = async () => {
       
       // Métadonnées
       status: 'new',
-      createdAt: serverTimestamp(),
       ipAddress: await getClientIP(),
       userAgent: navigator.userAgent
     }
@@ -1160,9 +1162,10 @@ const submitQuoteToFirebase = async () => {
         position: '',
         address: '',
         installationAddress: '',
-        solarConsumption: '',
+        energyConsumption: '',
         roofArea: '',
         buildingType: '',
+        appliances: '',
         installationType: '',
         power: '',
         distributionPoints: '',

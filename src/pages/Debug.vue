@@ -46,10 +46,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div v-for="product in products" :key="product.id" class="bg-white p-4 rounded-lg shadow">
           <img 
-            :src="product.mainImage || '/vite.svg'" 
+            :src="product.mainImage || '/images/montage_panneau.jpg'" 
             :alt="product.name"
             class="w-full h-40 object-cover rounded mb-2"
-            @error="(e) => e.target.src = '/vite.svg'"
+            @error="(e) => e.target.src = '/images/montage_panneau.jpg'"
           />
           <h3 class="font-bold text-lg">{{ product.name }}</h3>
           <p class="text-gray-600 text-sm">{{ product.shortDescription }}</p>
@@ -90,7 +90,7 @@ async function testProduct() {
     category: 'Test',
     shortDescription: 'Produit test pour débogage',
     description: 'Description test',
-    mainImage: '/vite.svg',
+    mainImage: '/images/montage_panneau.jpg',
     specs: []
   }
   console.log('➕ Ajout produit test:', testData)

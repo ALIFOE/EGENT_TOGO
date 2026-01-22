@@ -31,10 +31,10 @@
             <!-- Main Image -->
             <div class="relative bg-gray-100 rounded-3xl overflow-hidden h-96">
               <img 
-                :src="product.mainImage || '/vite.svg'" 
+                :src="product.mainImage || '/images/montage_panneau.jpg'" 
                 :alt="product.name"
                 class="w-full h-full object-cover"
-                @error="(e) => e.target.src = '/vite.svg'"
+                @error="(e) => e.target.src = '/images/montage_panneau.jpg'"
               />
             </div>
             
@@ -43,11 +43,11 @@
               <img 
                 v-for="(image, index) in product.images"
                 :key="index"
-                :src="image || '/vite.svg'"
+                :src="image || '/images/montage_panneau.jpg'"
                 :alt="`${product.name} - Image ${index + 1}`"
                 class="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity"
                 @click="product.mainImage = image"
-                @error="(e) => e.target.src = '/vite.svg'"
+                @error="(e) => e.target.src = '/images/montage_panneau.jpg'"
               />
             </div>
           </div>

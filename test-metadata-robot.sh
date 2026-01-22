@@ -10,7 +10,7 @@ echo "Test des métadonnées SEO pour EGENT-TOGO"
 echo ""
 
 # Configuration
-BASE_URL="http://localhost:5173"  # Modifier selon votre URL locale
+BASE_URL="http://www.egenttogo.com"  # Modifier selon votre URL locale
 
 # Couleurs pour l'output
 GREEN='\033[0;32m'

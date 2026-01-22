@@ -1,0 +1,15 @@
+[
+  {
+    "origin": [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:3000",
+      "https://alifoe.github.io",
+      "https://www.egenttogo.com",
+      "https://egenttogo.com"
+    ],
+    "method": ["GET", "HEAD", "DELETE", "POST", "PUT"],
+    "responseHeader": ["Content-Type", "Authorization"],
+    "maxAgeSeconds": 3600
+  }
+]

@@ -167,14 +167,17 @@
         <div class="bg-gray-50 rounded-lg p-4 mb-6">
           <h4 class="font-bold mb-4" style="color: #016E98">Détails du service</h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div v-if="selectedQuote.solarConsumption">
-              <p class="text-gray-600"><strong>Consommation annuelle :</strong> {{ selectedQuote.solarConsumption }} kWh</p>
+            <div v-if="selectedQuote.energyConsumption">
+              <p class="text-gray-600"><strong>Consommation d'énergie :</strong> {{ selectedQuote.energyConsumption }} kWh/mois</p>
             </div>
             <div v-if="selectedQuote.roofArea">
               <p class="text-gray-600"><strong>Surface de toiture :</strong> {{ selectedQuote.roofArea }} m²</p>
             </div>
             <div v-if="selectedQuote.buildingType">
               <p class="text-gray-600"><strong>Type de bâtiment :</strong> {{ selectedQuote.buildingType }}</p>
+            </div>
+            <div v-if="selectedQuote.appliances">
+              <p class="text-gray-600"><strong>Électroménagers :</strong> {{ selectedQuote.appliances }}</p>
             </div>
             <div v-if="selectedQuote.installationType">
               <p class="text-gray-600"><strong>Type d'installation :</strong> {{ selectedQuote.installationType }}</p>
@@ -187,6 +190,9 @@
             </div>
             <div v-if="selectedQuote.spaceType">
               <p class="text-gray-600"><strong>Type d'espace :</strong> {{ selectedQuote.spaceType }}</p>
+            </div>
+            <div v-if="selectedQuote.climateType">
+              <p class="text-gray-600"><strong>Type d'installation climatisation :</strong> {{ selectedQuote.climateType }}</p>
             </div>
             <div v-if="selectedQuote.waterPoints">
               <p class="text-gray-600"><strong>Points d'eau :</strong> {{ selectedQuote.waterPoints }}</p>

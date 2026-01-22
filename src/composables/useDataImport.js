@@ -37,7 +37,7 @@ export function useDataImport() {
           shortDescription: 'Solution anti délestage performante pour éviter les coupures de courant.',
           description: 'L\'Armoire Billy est une solution anti-délestage innovante et performante conçue pour protéger votre foyer contre les coupures de courant.',
           longDescription: '<h3>Caractéristiques principales:</h3><ul><li>Technologie anti-délestage avancée</li><li>Zéro émission polluante</li></ul>',
-          mainImage: '/vite.svg',
+          mainImage: '/images/montage_panneau.jpg',
           specs: [
             { label: 'Puissance', value: '500W - 5000W' },
             { label: 'Tension', value: '220V/50Hz' }
@@ -51,7 +51,7 @@ export function useDataImport() {
           shortDescription: 'Lampadaires solaires autonomes et écologiques pour illuminer vos espaces.',
           description: 'Les Lampadaires EGENT SOLAR sont des solutions d\'éclairage solaire autonomes et économiques.',
           longDescription: '<h3>Caractéristiques:</h3><ul><li>Panneaux solaires intégrés</li><li>Batterie lithium</li></ul>',
-          mainImage: '/vite.svg',
+          mainImage: '/images/montage_panneau.jpg',
           specs: [
             { label: 'Puissance', value: '10W - 50W' },
             { label: 'Autonomie', value: '12+ heures' }
@@ -65,7 +65,7 @@ export function useDataImport() {
           shortDescription: 'Kit solaire préconçu et complet pour installation rapide.',
           description: 'Le Kit Zoklin est un système solaire photovoltaïque complet et préconçu.',
           longDescription: '<h3>Composition:</h3><ul><li>Panneaux solaires 3kW</li><li>Onduleur hybride</li></ul>',
-          mainImage: '/vite.svg',
+          mainImage: '/images/montage_panneau.jpg',
           specs: [
             { label: 'Puissance', value: '3kW' },
             { label: 'Garantie', value: '5 ans' }
@@ -79,7 +79,7 @@ export function useDataImport() {
           shortDescription: 'Solution innovante de purification d\'eau solaire autonome.',
           description: 'Free Water est une solution révolutionnaire de purification d\'eau alimentée par l\'énergie solaire.',
           longDescription: '<h3>Caractéristiques:</h3><ul><li>Technologie multi-étages</li><li>Alimentation solaire</li></ul>',
-          mainImage: '/vite.svg',
+          mainImage: '/images/montage_panneau.jpg',
           specs: [
             { label: 'Capacité', value: '100-500 L/jour' },
             { label: 'Puissance', value: 'Solaire' }
@@ -120,7 +120,7 @@ export function useDataImport() {
           slug: 'inauguration-nouveau-centre',
           category: 'Actualité',
           date: '5 Jan 2026',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           excerpt: 'Découvrez le lancement officiel de notre nouveau centre de formation.',
           seoDescription: 'EGENT-TOGO inaugure un nouveau centre de formation moderne équipé de technologies dernier cri.',
           keywords: 'centre de formation, formation, Togo',
@@ -139,7 +139,7 @@ export function useDataImport() {
           slug: 'partenariat-international',
           category: 'Partenariat',
           date: '2 Jan 2026',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           excerpt: 'EGENT-TOGO établit un partenariat stratégique avec des leaders mondiaux.',
           seoDescription: 'EGENT-TOGO signe un partenariat stratégique avec des entreprises internationales majeures.',
           keywords: 'partenariat, collaboration, innovation',
@@ -158,7 +158,7 @@ export function useDataImport() {
           slug: 'prix-reconnaissance',
           category: 'Reconnaissance',
           date: '30 Déc 2025',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           excerpt: 'EGENT-TOGO reçoit plusieurs distinctions pour son excellence opérationnelle.',
           seoDescription: 'EGENT-TOGO reçoit le prix Excellence et Innovation 2025 pour son excellence.',
           keywords: 'prix, excellence, reconnaissance',
@@ -177,7 +177,7 @@ export function useDataImport() {
           slug: 'ressources-humaines-equipe',
           category: 'Ressources Humaines',
           date: '25 Déc 2025',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           excerpt: 'Nous recrutons 50 nouveaux professionnels pour renforcer nos équipes.',
           seoDescription: 'EGENT-TOGO recrute 50 nouveaux professionnels dans divers domaines.',
           keywords: 'recrutement, emploi, carrière',
@@ -225,7 +225,7 @@ export function useDataImport() {
           category: 'Énergie Solaire',
           date: 'Décembre 2023',
           location: 'Lomé, Togo',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           shortDescription: 'Installation complète d\'un système solaire de 5kWc pour une maison résidentielle.',
           description: 'Projet d\'installation d\'un système photovoltaïque complet pour une résidence à Lomé.',
           details: '<h3>Caractéristiques:</h3><ul><li>Puissance: 5kWc</li><li>Autonomie énergétique 80%</li><li>Reduction facture 85%</li></ul>'
@@ -236,7 +236,7 @@ export function useDataImport() {
           category: 'Climatisation & Froid',
           date: 'Septembre 2023',
           location: 'Kofi, Togo',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           shortDescription: 'Installation d\'un système de climatisation multi-split pour un bâtiment commercial.',
           description: 'Installation d\'un système de climatisation haute performance pour un complexe commercial.',
           details: '<h3>Spécifications:</h3><ul><li>Type: Système multi-split</li><li>Surface: 500m²</li><li>Économies: 30%</li></ul>'
@@ -247,7 +247,7 @@ export function useDataImport() {
           category: 'Électricité Générale',
           date: 'Juillet 2023',
           location: 'Aného, Togo',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           shortDescription: 'Rénovation complète du système électrique d\'un hôtel 3 étoiles.',
           description: 'Projet complet de rénovation du système électrique d\'un hôtel.',
           details: '<h3>Scope:</h3><ul><li>Tableaux électriques</li><li>Conformité normes</li><li>Système de secours</li></ul>'
@@ -258,7 +258,7 @@ export function useDataImport() {
           category: 'Énergie Solaire',
           date: 'Mai 2023',
           location: 'Tsévié, Togo',
-          image: '/vite.svg',
+          image: '/images/montage_panneau.jpg',
           shortDescription: 'Système solaire 10kWc pour alimentation d\'une ferme piscicole.',
           description: 'Installation d\'un système photovoltaïque pour une ferme piscicole autonome énergétiquement.',
           details: '<h3>Configuration:</h3><ul><li>Puissance: 10kWc</li><li>Autonomie: 100%</li><li>Production augmentée 30%</li></ul>'

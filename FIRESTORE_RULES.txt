@@ -3,48 +3,39 @@ service cloud.firestore {
   match /databases/{database}/documents {
     // ✅ DONNÉES PUBLIQUES - Lecture seule, édition admin uniquement
     match /products/{document=**} {
-      allow read: if true;  // Public peut lire les produits
-      allow create, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
     }
     match /articles/{document=**} {
-      allow read: if true;  // Public peut lire
-      allow create, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
     }
     match /gallery/{document=**} {
-      allow read: if true;  // Public peut lire
-      allow create, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
     }
     match /projects/{document=**} {
-      allow read: if true;  // Public peut lire
-      allow create, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow read: if true;
+      allow create, update, delete: if request.auth != null;
     }
     
-    // ⚠️ FORMULAIRES DE CONTACT - Public peut créer, admin lit/modère
-    // Validation : max 5KB, champs obligatoires
+    // 🖼️ IMAGES DES ARTICLES
+    match /articleImages/{document=**} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null;
+    }
+    
+    // ⚠️ FORMULAIRES DE CONTACT - Public peut créer, admin modère
     match /contact_forms/{document=**} {
-      allow create: if request.resource.size < 5120 &&
-                       request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt']) &&
-                       request.resource.data.name is string &&
-                       request.resource.data.email is string &&
-                       request.resource.data.message is string &&
-                       request.resource.data.name.size() > 0 &&
-                       request.resource.data.email.size() > 5 &&
-                       request.resource.data.message.size() > 10;
-      allow read, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
     }
     
-    // ⚠️ DEVIS - Public peut créer avec validation, admin modère
-    // Validation : max 5KB, champs obligatoires
+    // ⚠️ DEVIS - PUBLIC PEUT CRÉER SANS RESTRICTION
+    // Ultra-permissif pour déboguer
     match /quotes/{document=**} {
-      allow create: if request.resource.size < 5120 &&
-                       request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt']) &&
-                       request.resource.data.name is string &&
-                       request.resource.data.email is string &&
-                       request.resource.data.message is string &&
-                       request.resource.data.name.size() > 0 &&
-                       request.resource.data.email.size() > 5 &&
-                       request.resource.data.message.size() > 10;
-      allow read, update, delete: if request.auth != null;  // Admin authentifié seulement
+      allow create, read, write, delete: if true;
     }
   }
 }

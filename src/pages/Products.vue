@@ -143,10 +143,10 @@
             <div class="relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer group h-full flex flex-col">
               <!-- Image -->
               <img 
-                :src="product.mainImage || product.image || '/vite.svg'" 
+                :src="product.mainImage || product.image || '/images/montage_panneau.jpg'" 
                 :alt="product.name || product.title"
                 class="w-full h-[250px] object-cover group-hover:scale-105 transition-transform duration-300"
-                @error="(e) => e.target.src = '/vite.svg'"
+                @error="(e) => e.target.src = '/images/montage_panneau.jpg'"
               />
               
               <!-- Content -->
