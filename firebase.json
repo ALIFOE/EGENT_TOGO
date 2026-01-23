@@ -7,6 +7,11 @@
   "storage": {
     "rules": "storage.rules"
   },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs18",
+    "codebase": "default"
+  },
   "hosting": {
     "public": "dist",
     "ignore": [
@@ -15,6 +20,14 @@
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "prerender"
+      },
+      {
+        "source": "/article/**",
+        "function": "prerender"
+      },
       {
         "source": "**",
         "destination": "/index.html"
