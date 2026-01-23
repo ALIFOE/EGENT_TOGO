@@ -86,7 +86,7 @@
                 </div>
 
                 <p class="text-gray-700 text-lg leading-relaxed mb-8">
-                  {{ project.description }}
+                  {{ stripHtml(project.description) }}
                 </p>
 
                 <!-- CTA Buttons -->
@@ -642,6 +642,14 @@ const { setMeta } = useSEOMeta()
 const { deleteProject } = useFirebaseData()
 const router = useRouter()
 const route = useRoute()
+
+// Fonction pour nettoyer les balises HTML
+const stripHtml = (html) => {
+  if (!html) return ''
+  const div = document.createElement('div')
+  div.innerHTML = html
+  return div.textContent || div.innerText || ''
+}
 
 const project = ref(null)
 const projects = ref([])

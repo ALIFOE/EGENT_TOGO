@@ -92,22 +92,11 @@
           />
         </div>
 
-        <!-- Description -->
+        <!-- Description Complète (HTML) -->
         <div>
-          <label class="block text-sm font-semibold text-gray-700 mb-2">Description Complète</label>
-          <textarea
-            v-model="formData.description"
-            rows="4"
-            placeholder="Description détaillée du produit"
-            class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition resize-none"
-          ></textarea>
-        </div>
-
-        <!-- Description Longue (HTML) -->
-        <div>
-          <label class="block text-sm font-semibold text-gray-700 mb-2">Description Longue</label>
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Description Complète *</label>
           <QuillEditor 
-            v-model="formData.longDescription"
+            v-model="formData.description"
             class="rounded-lg border border-gray-300"
           />
           <p class="text-xs text-gray-500 mt-2">
@@ -451,7 +440,6 @@ const formData = ref({
   slug: '',
   shortDescription: '',
   description: '',
-  longDescription: '',
   mainImage: '',
   images: [],
   mainCharacteristics: [],
@@ -466,7 +454,6 @@ const defaultFormData = {
   slug: '',
   shortDescription: '',
   description: '',
-  longDescription: '',
   mainImage: '',
   images: [],
   mainCharacteristics: [],
@@ -692,7 +679,6 @@ const submitForm = async () => {
       slug: formData.value.slug,
       shortDescription: formData.value.shortDescription || '',
       description: formData.value.description || '',
-      longDescription: formData.value.longDescription || '',
       mainImage: formData.value.mainImage || '',
       images: formData.value.images || [],
       mainCharacteristics: formData.value.mainCharacteristics || [],

@@ -289,6 +289,14 @@ const compressImage = (base64Data, callback) => {
   img.src = base64Data
 }
 
+// Fonction pour nettoyer les balises HTML
+const stripHtml = (html) => {
+  if (!html) return ''
+  const div = document.createElement('div')
+  div.innerHTML = html
+  return div.textContent || div.innerText || ''
+}
+
 const validateForm = () => {
   errors.value.title = !form.value.title.trim() ? '❌ Le titre est requis' : ''
   errors.value.slug = !form.value.slug.trim() ? '❌ Le slug est requis' : ''
@@ -307,6 +315,9 @@ const submitForm = async () => {
 
   saving.value = true
   try {
+    // Nettoyer la description courte pour s'assurer qu'elle ne contient pas de HTML
+    form.value.description = stripHtml(form.value.description).trim()
+    
     if (props.project) {
       await updateProject(props.project.id, form.value)
     } else {

@@ -21,10 +21,13 @@
             <li><RouterLink to="/a-propos" class="hover:text-[#EE6D08] transition-colors duration-300">À Propos</RouterLink></li>
             <li><RouterLink to="/services" class="hover:text-[#EE6D08] transition-colors duration-300">Services</RouterLink></li>
             <li><RouterLink to="/produits" class="hover:text-[#EE6D08] transition-colors duration-300">Produits</RouterLink></li>
+           <li><RouterLink to="/actualites" class="hover:text-[#EE6D08] transition-colors duration-300">Actualités</RouterLink></li>
             <li><RouterLink to="/galerie" class="hover:text-[#EE6D08] transition-colors duration-300">Galerie</RouterLink></li>
-            <li><RouterLink to="/actualites" class="hover:text-[#EE6D08] transition-colors duration-300">Actualités</RouterLink></li>
+        
             <li><RouterLink to="/contact" class="hover:text-[#EE6D08] transition-colors duration-300">Contact</RouterLink></li>
+            <li><RouterLink to="/projets" class="hover:text-[#EE6D08] transition-colors duration-300">Voir nos projets</RouterLink></li>
             <li><RouterLink to="/devis" class="hover:text-[#EE6D08] transition-colors duration-300">Demander un Devis</RouterLink></li>
+
           </ul>
         </div>
 

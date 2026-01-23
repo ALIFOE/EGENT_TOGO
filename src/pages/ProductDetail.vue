@@ -67,7 +67,7 @@
 
               <!-- Description -->
               <p class="text-gray-700 text-lg leading-relaxed mb-8 animate-fadeInUp animation-delay-600">
-                {{ product.description }}
+                {{ stripHtml(product.shortDescription) }}
               </p>
 
               <!-- Quick Features -->
@@ -121,7 +121,7 @@
           <div class="md:col-span-2">
             <div class="bg-white rounded-3xl p-8 shadow-lg animate-fadeInUp animation-delay-300">
               <h2 class="text-3xl font-black text-[#016E98] mb-8 animate-slideInDown animation-delay-400">À propos de ce produit</h2>
-              <div class="prose prose-lg max-w-none text-gray-700" v-html="product.longDescription"></div>
+              <div class="prose prose-lg max-w-none text-gray-700" v-html="product.description"></div>
 
               <!-- Caractéristiques principales -->
               <div v-if="product.mainCharacteristics && product.mainCharacteristics.length > 0" class="mt-12 pt-8 border-t-2 border-gray-200">
@@ -286,21 +286,11 @@
             ></textarea>
           </div>
 
-          <!-- Description complète -->
+          <!-- Description Complète (HTML) -->
           <div>
-            <label class="block text-sm font-bold text-gray-700 mb-2">Description complète</label>
-            <textarea 
-              v-model="editForm.description"
-              rows="3"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-
-          <!-- Long Description (HTML) -->
-          <div>
-            <label class="block text-sm font-bold text-gray-700 mb-2">Description longue</label>
+            <label class="block text-sm font-bold text-gray-700 mb-2">Description Complète *</label>
             <QuillEditor 
-              v-model="editForm.longDescription"
+              v-model="editForm.description"
               class="rounded-lg border border-gray-300"
             />
             <p class="text-xs text-gray-500 mt-2">
@@ -596,7 +586,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { collection, getDocs, query, doc, updateDoc } from 'firebase/firestore'
 import { db, auth } from '../lib/firebase'
@@ -614,6 +604,14 @@ if (typeof window !== 'undefined') {
 const { setMeta } = useSEOMeta()
 const router = useRouter()
 const route = useRoute()
+
+// Fonction pour nettoyer les balises HTML
+const stripHtml = (html) => {
+  if (!html) return ''
+  const div = document.createElement('div')
+  div.innerHTML = html
+  return div.textContent || div.innerText || ''
+}
 
 const product = ref(null)
 const products = ref([])
@@ -633,7 +631,6 @@ const editForm = ref({
   slug: '',
   shortDescription: '',
   description: '',
-  longDescription: '',
   mainImage: '',
   mainCharacteristics: [],
   advantages: [],
@@ -657,6 +654,41 @@ const loadProducts = async () => {
   }
 }
 
+const loadProduct = async () => {
+  loading.value = true
+  
+  // Si les produits ne sont pas chargés, les charger
+  if (products.value.length === 0) {
+    await loadProducts()
+  }
+  
+  const productSlug = route.params.slug
+  const foundProduct = products.value.find(p => p.slug === productSlug)
+  
+  if (foundProduct) {
+    product.value = { ...foundProduct }
+    
+    // ✅ SEO OPTIMISÉ POUR LA PAGE PRODUIT
+    setMeta(
+      `${product.value.name} - ${product.value.category} EGENT-TOGO`,
+      product.value.shortDescription || product.value.description || `Découvrez ${product.value.name}, une solution ${product.value.category} de qualité d\'EGENT-TOGO. Livré avec garantie et support technique.`,
+      product.value.mainImage,
+      `/produits/${productSlug}`,
+      {
+        type: 'product',
+        siteName: 'EGENT-TOGO',
+        imageWidth: '1200',
+        imageHeight: '630'
+      }
+    )
+  } else {
+    router.push('/produits')
+    return
+  }
+  
+  loading.value = false
+}
+
 const checkAdminStatus = () => {
   // Vérifier si l'utilisateur est connecté
   const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -675,7 +707,6 @@ const openEditModal = () => {
     slug: product.value.slug || '',
     shortDescription: product.value.shortDescription || '',
     description: product.value.description || '',
-    longDescription: product.value.longDescription || '',
     mainImage: product.value.mainImage || '',
     images: product.value.images ? JSON.parse(JSON.stringify(product.value.images)) : [],
     mainCharacteristics: product.value.mainCharacteristics ? JSON.parse(JSON.stringify(product.value.mainCharacteristics)) : [],
@@ -793,7 +824,6 @@ const saveProduct = async () => {
       slug: editForm.value.slug,
       shortDescription: editForm.value.shortDescription,
       description: editForm.value.description,
-      longDescription: editForm.value.longDescription,
       mainImage: editForm.value.mainImage,
       mainCharacteristics: editForm.value.mainCharacteristics,
       advantages: editForm.value.advantages,
@@ -830,33 +860,12 @@ const saveProduct = async () => {
 
 onMounted(async () => {
   checkAdminStatus()
-  await loadProducts()
-  
-  const productSlug = route.params.slug
-  const foundProduct = products.value.find(p => p.slug === productSlug)
-  
-  if (foundProduct) {
-    product.value = { ...foundProduct }
-    
-    // ✅ SEO OPTIMISÉ POUR LA PAGE PRODUIT
-    setMeta(
-      `${product.value.name} - ${product.value.category} EGENT-TOGO`,
-      product.value.shortDescription || product.value.description || `Découvrez ${product.value.name}, une solution ${product.value.category} de qualité d\'EGENT-TOGO. Livré avec garantie et support technique.`,
-      product.value.mainImage,
-      `/produits/${productSlug}`,
-      {
-        type: 'product',
-        siteName: 'EGENT-TOGO',
-        imageWidth: '1200',
-        imageHeight: '630'
-      }
-    )
-  } else {
-    router.push('/produits')
-    return
-  }
-  
-  loading.value = false
+  await loadProduct()
+})
+
+// Watch pour surveiller les changements de route
+watch(() => route.params.slug, async () => {
+  await loadProduct()
 })
 
 function goBack() {
