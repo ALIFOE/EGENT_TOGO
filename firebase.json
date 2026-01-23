@@ -21,16 +21,31 @@
     ],
     "rewrites": [
       {
-        "source": "/api/**",
+        "source": "/article/:slug",
         "function": "prerender"
       },
       {
-        "source": "/article/**",
+        "source": "/api/**",
         "function": "prerender"
       },
       {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/article/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600, s-maxage=3600"
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/html; charset=utf-8"
+          }
+        ]
       }
     ]
   }
