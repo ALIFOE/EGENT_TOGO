@@ -113,18 +113,18 @@
           <!-- Carte verte avec statistiques -->
           <div class="bg-green-600 rounded-3xl p-8 text-white w-80 h-80 flex flex-col justify-around transition-all duration-1000 hover:shadow-2xl" :class="historyInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'">
             <div>
-              <div class="text-5xl font-black mb-1">70%</div>
-              <p class="text-sm font-semibold">Plus durable</p>
+              <div class="text-5xl font-black mb-1">2MWC</div>
+              <p class="text-sm font-semibold">Production</p>
               <div class="h-1 bg-white/50 mt-2"></div>
             </div>
             <div>
-              <div class="text-5xl font-black mb-1">120</div>
-              <p class="text-sm font-semibold">Clients satisfaits</p>
+              <div class="text-5xl font-black mb-1">200</div>
+              <p class="text-sm font-semibold">Installation</p>
               <div class="h-1 bg-white/50 mt-2"></div>
             </div>
             <div>
-              <div class="text-5xl font-black mb-1">30%</div>
-              <p class="text-sm font-semibold">D'économie</p>
+              <div class="text-5xl font-black mb-1">80%</div>
+              <p class="text-sm font-semibold">Économie</p>
             </div>
           </div>
 
@@ -189,7 +189,7 @@
           <!-- Image gauche -->
           <div class="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group transition-all duration-1000" :class="advantagesInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'">
             <img 
-              src="/src/assets/images/photo_chantier.jpg" 
+              src="/src/assets/images/FP.png" 
               alt="Équipe EGENT TOGO"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
@@ -416,7 +416,7 @@
           <!-- Image droite -->
           <div class="relative h-96 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group transition-all duration-1000" :class="ctaAboutInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'">
             <img 
-              src="/src/assets/images/photo_chantier2.jpg" 
+              src="/src/assets/images/DAUREVOIR.png" 
               alt="Solutions d'énergie renouvelable"
               class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />

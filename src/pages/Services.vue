@@ -58,7 +58,7 @@
             <!-- Main image -->
             <div class="relative h-full rounded-3xl overflow-hidden shadow-2xl group animate-fadeInUp animation-delay-500">
               <img 
-                src="/src/assets/images/panneau_montés.jpg" 
+                src="/src/assets/images/EGENT.webp" 
                 alt="Services énergétiques"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -201,7 +201,7 @@
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
-                src="/src/assets/images/montage_panneau.jpg" 
+                src="/src/assets/images/Plomberie.png" 
                 alt="Plomberie"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -228,7 +228,7 @@
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
-                src="/src/assets/images/montage_panneau2.jpg" 
+                src="/src/assets/images/FP.png" 
                 alt="Fourniture d'équipements"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -255,7 +255,7 @@
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
-                src="/src/assets/images/egent_reception.jpg" 
+                src="/src/assets/images/Consultation.png" 
                 alt="Consulting"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
@@ -339,7 +339,7 @@
           <!-- Right Image -->
           <div class="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl animate-fadeInUp animation-delay-500">
             <img 
-              src="/src/assets/images/photo_chantier2.jpg" 
+              src="/src/assets/images/DAUREVOIR.png" 
               alt="Solutions énergétiques"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />

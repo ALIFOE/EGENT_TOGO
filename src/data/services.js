@@ -187,11 +187,11 @@ export const services = [
       <li>Service d\'urgence 24/7</li>
     </ul>
     `,
-    image: new URL('../assets/images/montage_panneau.jpg', import.meta.url).href,
-    mainImage: new URL('../assets/images/montage_panneau.jpg', import.meta.url).href,
+    image: new URL('../assets/images/Plomberie.png', import.meta.url).href,
+    mainImage: new URL('../assets/images/Plomberie.png', import.meta.url).href,
     images: [
-      new URL('../assets/images/montage_panneau.jpg', import.meta.url).href,
-      new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href
+      // new URL('../assets/images/montage_panneau.jpg', import.meta.url).href,
+      // new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href
     ],
     features: [
       { title: 'Experts plomberie', description: 'Équipe qualifiée avec 15+ ans d\'expérience' },
@@ -242,10 +242,10 @@ export const services = [
     </ul>
     `,
     image: new URL('../assets/images/montage_panneau2.jpg', import.meta.url).href,
-    mainImage: new URL('../assets/images/montage_panneau2.jpg', import.meta.url).href,
+    mainImage: new URL('../assets/images/FP.png', import.meta.url).href,
     images: [
-      new URL('../assets/images/montage_panneau2.jpg', import.meta.url).href,
-      new URL('../assets/images/panneau_montés.jpg', import.meta.url).href
+      // new URL('../assets/images/montage_panneau2.jpg', import.meta.url).href,
+      // new URL('../assets/images/panneau_montés.jpg', import.meta.url).href
     ],
     features: [
       { title: 'Marques reconnues', description: 'Fournisseur officiel des meilleures marques' },
@@ -296,10 +296,10 @@ export const services = [
     </ul>
     `,
     image: new URL('../assets/images/egent_reception.jpg', import.meta.url).href,
-    mainImage: new URL('../assets/images/egent_reception.jpg', import.meta.url).href,
+    mainImage: new URL('../assets/images/Consultation.png', import.meta.url).href,
     images: [
       new URL('../assets/images/egent_reception.jpg', import.meta.url).href,
-      new URL('../assets/images/chauffage_egent.jpg', import.meta.url).href
+      new URL('../assets/images/Consultation.png', import.meta.url).href
     ],
     features: [
       { title: 'Experts expérimentés', description: 'Consultants avec 20+ ans d\'expérience' },

@@ -243,7 +243,7 @@
           <!-- Right Image -->
           <div class="relative h-80 md:h-96 rounded-3xl overflow-hidden shadow-2xl animate-fadeInUp animation-delay-400">
             <img 
-              src="/src/assets/images/photo_chantier2.jpg" 
+              src="/src/assets/images/DAUREVOIR.png" 
               alt="Nos produits"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             />

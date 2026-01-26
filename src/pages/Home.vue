@@ -199,7 +199,7 @@
           <!-- Image -->
           <div class="order-2 md:order-1 transition-all duration-1000" :class="whyChooseInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'">
             <img 
-              src="/src/assets/images/egent_reception.jpg" 
+              src="/src/assets/images/FP.png" 
               alt="Pourquoi nous choisir"
               class="w-full rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
             />
@@ -616,7 +616,7 @@
           <!-- Image -->
           <div class="transition-all duration-1000" :class="ctaInView ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-10 scale-95'">
             <img 
-              src="/src/assets/images/photo_chantier2.jpg" 
+              src="/src/assets/images/DAUREVOIR.png" 
               alt="Professionnelle énergie solaire"
               class="w-full rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
             />
