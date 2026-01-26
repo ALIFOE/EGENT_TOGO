@@ -119,7 +119,7 @@
             </div>
             <div>
               <div class="text-5xl font-black mb-1">200</div>
-              <p class="text-sm font-semibold">Installation</p>
+              <p class="text-sm font-semibold">Installations</p>
               <div class="h-1 bg-white/50 mt-2"></div>
             </div>
             <div>
@@ -294,7 +294,7 @@
             </div>
             <div class="text-center">
               <h3 class="text-xl font-black text-[#016E98] group-hover:text-[#EE6D08] transition-colors duration-300">AWUTE Komla</h3>
-              <p class="text-[#EE6D08] font-bold text-sm">Direceur Gérérals</p>
+              <p class="text-[#EE6D08] font-bold text-sm">Direceur Géréral</p>
             </div>
           </div>
 

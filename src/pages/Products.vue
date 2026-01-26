@@ -58,7 +58,7 @@
             <!-- Main image -->
             <div class="relative h-full rounded-3xl overflow-hidden shadow-2xl group animate-fadeInUp animation-delay-400">
               <img 
-                src="/src/assets/images/montage_panneau.jpg" 
+                src="/src/assets/images/DC.webp" 
                 alt="Produits EGENT TOGO"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -67,7 +67,7 @@
             </div>
 
             <!-- Floating card 1 - Top right -->
-            <div class="absolute top-4 md:top-8 -right-2 md:-right-4 lg:right-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 md:p-6 w-56 md:w-64 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 hover:bg-white/20 animate-slideInDown animation-delay-600">
+            <!-- <div class="absolute top-4 md:top-8 -right-2 md:-right-4 lg:right-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 md:p-6 w-56 md:w-64 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 hover:bg-white/20 animate-slideInDown animation-delay-600">
               <div class="flex items-center gap-3 mb-2">
                 <div class="w-10 md:w-12 h-10 md:h-12 bg-gradient-to-br from-[#EE6D08] to-orange-400 rounded-lg flex items-center justify-center text-white shadow-lg">
                   <i class="fas fa-box text-lg md:text-xl"></i>
@@ -75,7 +75,7 @@
                 <h3 class="font-black text-[#016E98] text-base md:text-lg">Premium</h3>
               </div>
               <p class="text-xs md:text-sm text-black">Produits de qualité supérieure</p>
-            </div>
+            </div> -->
 
             <!-- Floating card 2 - Bottom left -->
             <div class="absolute -bottom-2 md:-bottom-4 left-0 md:left-4 lg:left-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 md:p-6 w-56 md:w-64 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 hover:bg-white/20 animate-fadeInUp animation-delay-600">
