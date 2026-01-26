@@ -191,7 +191,7 @@
             <div class="inline-block bg-[#EE6D08] rounded-full p-4 mb-4">
               <i class="fas fa-users text-white text-3xl"></i>
             </div>
-            <h3 class="text-4xl font-black text-[#EE6D08] mb-2">2K+</h3>
+            <h3 class="text-4xl font-black text-[#EE6D08] mb-2">200</h3>
             <p class="text-gray-100 font-semibold">Clients satisfaits</p>
           </div>
 
