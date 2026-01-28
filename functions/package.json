@@ -17,7 +17,8 @@
     "express": "^4.18.2",
     "puppeteer": "^20.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "nodemailer": "^6.9.7"
   },
   "devDependencies": {
     "firebase-tools": "^12.0.0"

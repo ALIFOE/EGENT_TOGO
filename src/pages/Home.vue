@@ -1,12 +1,9 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <div class="flex justify-center pt-8 pb-4 animate-pulse">
-      <span class="text-xl md:text-2xl font-black text-[#2F7914] tracking-widest uppercase animate-bounce"></span>
-    </div>
     <section 
       id="home" 
-      class="relative w-full h-screen bg-cover bg-center bg-no-repeat flex items-start justify-center overflow-hidden -mt-24 md:-mt-48 pt-0"
+      class="relative w-full min-h-screen bg-cover bg-center bg-no-repeat flex items-start justify-center overflow-hidden -mt-32 pt-0"
     >
       <!-- Hero Carousel Background -->
       <transition name="hero-carousel" mode="out-in">
@@ -24,8 +21,8 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-start justify-center relative z-10">
         <div class="flex items-start justify-center w-full">
           <!-- Content -->
-          <div class="z-10 max-w-4xl text-center pt-16 md:pt-40 px-2 sm:px-4">
-            <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight drop-shadow-lg animate-fadeInUp translate-y-6">
+          <div class="z-10 max-w-4xl text-center pt-32 md:pt-40 px-2 sm:px-4">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-5xl font-bold leading-tight drop-shadow-lg animate-fadeInUp translate-y-6">
               <span class="text-white">Écrivons l'Avenir de </span>
               <span class="text-white">l'Énergie</span>
               <br />
@@ -115,9 +112,9 @@
     </div> -->
 
     <!-- About Section -->
-    <section id="about-section" class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24">
+    <section id="about-section" class="bg-gradient-to-br from-gray-50 to-gray-100 py-12 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
           <!-- Content -->
           <div class="order-2 md:order-1 transition-all duration-1000" :class="aboutInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'">
             <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">L’EXPERTISE SOLAIRE AU TOGO</p>
@@ -143,17 +140,17 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="bg-gradient-to-br from-white to-gray-50 py-16 md:py-24">
+    <section id="services" class="bg-gradient-to-br from-white to-gray-50 py-12 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20 animate-fadeInUp">
-          <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">Nos services</p>
-          <h2 class="text-4xl md:text-5xl font-black text-[#016E98] leading-tight">NOUS OFFRONS DES SOLUTIONS ÉNERGÉTIQUES DURABLES</h2>
+        <div class="text-center mb-12 md:mb-20 animate-fadeInUp">
+          <p class="text-[#FF9D35] font-semibold mb-3 text-xs sm:text-sm uppercase tracking-widest animate-pulse">Nos services</p>
+          <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-[#016E98] leading-tight">NOUS OFFRONS DES SOLUTIONS ÉNERGÉTIQUES DURABLES</h2>
         </div>
 
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <!-- Service 1: Energie Solaire -->
-          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0s">
+          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-64 md:h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0s">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -178,7 +175,7 @@
           </div>
 
           <!-- Service 2: Climatisation & Froid -->
-          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0.15s">
+          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-64 md:h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0.15s">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -203,7 +200,7 @@
           </div>
 
           <!-- Service 3: Énergie Solaire -->
-          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0.3s">
+          <div @click="navigateTo('/services')" class="group relative overflow-hidden rounded-3xl h-64 md:h-80 cursor-pointer transition-all duration-500 hover:scale-105 animate-fadeInUp" style="animation-delay: 0.3s">
             <!-- Image Container with Zoom Effect -->
             <div class="absolute inset-0 overflow-hidden rounded-3xl">
               <img 
@@ -236,9 +233,9 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section id="why-choose-section" class="bg-gradient-to-br from-blue-50 to-blue-100 py-16 md:py-24">
+    <section id="why-choose-section" class="bg-gradient-to-br from-blue-50 to-blue-100 py-12 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
           <!-- Carousel Image -->
           <div class="order-2 md:order-1 transition-all duration-9000" :class="whyChooseInView ? 'opacity-100 scale-100' : 'opacity-0 scale-90'">
             <div class="relative w-full rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden group">
@@ -289,14 +286,14 @@
 
           <!-- Content -->
           <div class="order-1 md:order-2 transition-all duration-1000" :class="whyChooseInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'">
-            <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">Nos valeurs</p>
-            <h2 class="text-4xl md:text-5xl font-black text-[#016E98] mb-6 leading-tight">POURQUOI CHOISIR LES SOLUTIONS EGENT TOGO ?</h2>
+            <p class="text-[#FF9D35] font-semibold mb-3 text-xs sm:text-sm uppercase tracking-widest animate-pulse">Nos valeurs</p>
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-[#016E98] mb-6 leading-tight">POURQUOI CHOISIR LES SOLUTIONS EGENT TOGO ?</h2>
             
-            <p class="text-gray-600 mb-12 leading-relaxed text-lg">
+            <p class="text-gray-600 mb-8 md:mb-12 leading-relaxed text-sm sm:text-base md:text-lg">
               EGENT TOGO se distingue par son engagement envers la qualité, l'innovation et la satisfaction client. Nous utilisons uniquement des équipements certifiés et nos techniciens sont formés aux dernières technologies en matière d'énergie renouvelable.
             </p>
 
-            <div class="grid grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               <!-- Feature 1 -->
               <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50 hover:scale-105 hover:-translate-y-2 animate-fadeInUp" style="animation-delay: 0s">
                 <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#FF9D35]/10 mb-4">
@@ -339,20 +336,20 @@
     </section>
 
     <!-- Partners Section -->
-    <section id="partners-section" class="bg-gradient-to-br from-white to-gray-50 py-16 md:py-24">
+    <section id="partners-section" class="bg-gradient-to-br from-white to-gray-50 py-12 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20 animate-fadeInUp">
-          <p class="text-[#FF9D35] font-semibold mb-3 text-sm uppercase tracking-widest animate-pulse">Nos partenaires</p>
-          <h2 class="text-4xl md:text-5xl font-black text-[#016E98] leading-tight mb-6">Ils nous ont fait confiance.</h2>
+        <div class="text-center mb-12 md:mb-20 animate-fadeInUp">
+          <p class="text-[#FF9D35] font-semibold mb-3 text-xs sm:text-sm uppercase tracking-widest animate-pulse">Nos partenaires</p>
+          <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-[#016E98] leading-tight mb-6">Ils nous ont fait confiance.</h2>
           <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Ils sont nombreux à nous faire confiance
           </p>
         </div>
 
         <!-- Partners Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-8 items-center justify-items-center">
           <!-- Partner 1 - TotalEnergies -->
-          <div class="flex items-center justify-center h-40 w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-4" style="animation-delay: 0s">
+          <div class="flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 md:h-40 md:w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-2 sm:p-3 md:p-4" style="animation-delay: 0s">
             <img 
               src="/src/assets/images/totalenergies.svg"
               alt="TotalEnergies"
@@ -361,7 +358,7 @@
           </div>
 
           <!-- Partner 2 - Ecobank -->
-          <div class="flex items-center justify-center h-40 w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-4" style="animation-delay: 0.1s">
+          <div class="flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 md:h-40 md:w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-2 sm:p-3 md:p-4" style="animation-delay: 0.1s">
             <img 
               src="/src/assets/images/Ecobank_logo1.png" 
               alt="Ecobank"
@@ -370,7 +367,7 @@
           </div>
 
           <!-- Partner 3 - OIM -->
-          <div class="flex items-center justify-center h-40 w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-4" style="animation-delay: 0.2s">
+          <div class="flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 md:h-40 md:w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-2 sm:p-3 md:p-4" style="animation-delay: 0.2s">
             <img 
               src="/src/assets/images/Logo_OIM.png" 
               alt="OIM"
@@ -379,7 +376,7 @@
           </div>
 
           <!-- Partner 4 - FAO -->
-          <div class="flex items-center justify-center h-40 w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-4" style="animation-delay: 0.3s">
+          <div class="flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 md:h-40 md:w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-2 sm:p-3 md:p-4" style="animation-delay: 0.3s">
             <img 
               src="/src/assets/images/FAO2.png" 
               alt="FAO"
@@ -388,7 +385,7 @@
           </div>
 
           <!-- Partner 5 - CREFERL -->
-          <div class="flex items-center justify-center h-40 w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-4" style="animation-delay: 0.4s">
+          <div class="flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 md:h-40 md:w-40 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer group animate-fadeInUp p-2 sm:p-3 md:p-4" style="animation-delay: 0.4s">
             <img 
               src="/src/assets/images/crefer2.png" 
               alt="CREFER"

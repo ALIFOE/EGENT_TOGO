@@ -739,6 +739,12 @@ import { useCursorFollowText } from '../composables/useCursorFollowText'
 import { useSEOMeta } from '../composables/useSEOMeta'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../lib/firebase'
+import emailjs from '@emailjs/browser'
+
+// Initialiser EmailJS
+emailjs.init({
+  publicKey: 'TtorZabzDaChHE7E7' // À remplacer par votre clé publique EmailJS
+})
 
 // Charger Google Analytics dynamiquement
 if (typeof window !== 'undefined') {
@@ -1098,9 +1104,8 @@ const submitQuoteToFirebase = async () => {
     isSubmitting.value = true
     submitMessage.value = '⏳ Envoi de votre devis...'
 
-    // Préparer les données du formulaire - structure simplifiée
+    // Préparer les données du formulaire
     const quoteData = {
-      // Champs obligatoires pour les règles
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       email: form.value.email,
@@ -1108,16 +1113,13 @@ const submitQuoteToFirebase = async () => {
       address: form.value.address,
       service: selectedService.value,
       serviceName: getSelectedServiceName(),
-      createdAt: serverTimestamp(),
       
-      // Champs informatifs
       company: form.value.company,
       position: form.value.position,
       installationAddress: form.value.installationAddress,
       message: form.value.message,
       budget: form.value.budget,
       
-      // Champs spécifiques au service
       energyConsumption: form.value.energyConsumption,
       roofArea: form.value.roofArea,
       buildingType: form.value.buildingType,
@@ -1136,19 +1138,52 @@ const submitQuoteToFirebase = async () => {
       preferredBrand: form.value.preferredBrand,
       consultingType: form.value.consultingType,
       duration: form.value.duration,
-      projectField: form.value.projectField,
-      
-      // Métadonnées
+      projectField: form.value.projectField
+    }
+
+    // D'abord, sauvegarder dans Firestore
+    const docRef = await addDoc(collection(db, 'quotes'), {
+      ...quoteData,
+      createdAt: serverTimestamp(),
       status: 'new',
       ipAddress: await getClientIP(),
       userAgent: navigator.userAgent
+    })
+
+    // Ajouter l'ID du document aux données
+    quoteData.docId = docRef.id
+    quoteData.createdAt = new Date().toLocaleString('fr-FR')
+
+    // Envoyer les emails via EmailJS
+    try {
+      // Email pour l'admin
+      await emailjs.send('service_ppul3pe', 'template_0hvqj4q', {
+        to_email: 'infos@egenttogo.com',
+        from_email: form.value.email,
+        from_name: `${form.value.firstName} ${form.value.lastName}`,
+        service_name: getSelectedServiceName(),
+        phone: form.value.phone,
+        address: form.value.address,
+        message: form.value.message,
+        budget: form.value.budget || 'Non spécifié',
+        doc_id: docRef.id
+      })
+
+      // Email de confirmation pour le client (template différent)
+      await emailjs.send('service_ppul3pe', 'template_1p7pc48', {
+        from_email: form.value.email,
+        client_name: form.value.firstName,
+        service_name: getSelectedServiceName(),
+        doc_id: docRef.id
+      })
+
+      submitSuccess.value = true
+      submitMessage.value = '✅ Succès! Votre demande de devis a été envoyée. Vous recevrez une confirmation par email, et notre équipe vous contactera sous peu.'
+    } catch (emailError) {
+      console.error('Erreur EmailJS:', emailError)
+      submitSuccess.value = false
+      submitMessage.value = '⚠️ Votre devis a été enregistré, mais l\'envoi d\'email a échoué. Notre équipe vous contactera quand même.'
     }
-
-    // Sauvegarder dans Firebase
-    await addDoc(collection(db, 'quotes'), quoteData)
-
-    submitSuccess.value = true
-    submitMessage.value = '✅ Merci ! Votre demande de devis a été envoyée avec succès. Notre équipe vous contactera sous peu.'
 
     // Réinitialiser le formulaire après 3 secondes
     setTimeout(() => {
@@ -1190,7 +1225,7 @@ const submitQuoteToFirebase = async () => {
   } catch (error) {
     console.error('Erreur envoi devis:', error)
     submitSuccess.value = false
-    submitMessage.value = ' l\'envoi en cour, Veuillez réessayer.'
+    submitMessage.value = '❌ Erreur lors de l\'envoi. Veuillez réessayer.'
   } finally {
     isSubmitting.value = false
   }

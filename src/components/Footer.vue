@@ -55,7 +55,7 @@
             <a href="https://www.facebook.com/people/EGENT TOGO/100036214345608/" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="Facebook">
               <i class="fab fa-facebook"></i>
             </a>
-            <a href="https://twitter.com/EgentTogo" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="Twitter/X">
+            <a href="https://x.com/CREFER_Formatio" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="Twitter/X">
               <i class="fab fa-x-twitter"></i>
             </a>
             <a href="https://www.linkedin.com/company/egenttogo/" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="LinkedIn">
@@ -71,7 +71,7 @@
             <a href="https://www.youtube.com/channel/UC-OymaCWKirMuMAzyDN5uYw/featured" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="YouTube">
               <i class="fab fa-youtube"></i>
             </a>
-            <a href="https://www.youtube.com/channel/UC-OymaCWKirMuMAzyDN5uYw/featured" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="TikTok">
+            <a href="https://www.tiktok.com/@egenttogo?_r=1&_t=ZS-93QrjSmWlT6" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="TikTok">
               <i class="fab fa-tiktok"></i>
             </a>
             <a href="https://api.whatsapp.com/send?phone=22892531455&text=Bonjour%2C%20je%20vous%20contacte%20de%20la%20part%20de%20%2AGo%20Africa%20Online%2A%2C%0A" target="_blank" rel="noopener noreferrer" class="text-blue-200 hover:text-[#EE6D08] transition-colors duration-300 text-2xl hover:scale-110 transform duration-300" title="WhatsApp">

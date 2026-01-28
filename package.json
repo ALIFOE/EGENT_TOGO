@@ -13,6 +13,7 @@
     "prerender": "node server.js"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@vueuse/head": "^2.0.0",
     "cors": "^2.8.5",
